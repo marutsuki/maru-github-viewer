@@ -21,7 +21,7 @@ export function parseUser(json: Record<string, string>): User {
     return {
         username: json.login,
         email: json.email,
-        url: json.url,
+        url: json.html_url,
         avatarUrl: json.avatar_url,
         name: json.name,
         company: json.company,

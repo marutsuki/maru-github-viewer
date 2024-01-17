@@ -34,10 +34,27 @@ export default function Page({ params }: { params: { user: string}}) {
 }
 
 const UserPage: React.FC<User> = (props) => {
-    console.log(props);
-    return <main>
-        <div className="avatar">
-            <Image src={props.avatarUrl} alt="Profile Image" width={250} height={250} />
+    const router = useRouter();
+
+    const redirectToGithub = () => {
+        router.push(props.url);
+    };
+    return <main className="p-12">
+        <div className="card w-96 bg-base-100 shadow-xl">
+            <figure>
+                <div className="avatar">
+                    <div className="w-48 h-48 mask mask-squircle">
+                        <Image src={props.avatarUrl} alt="Profile Image" layout="fill" objectFit="cover" />
+                    </div>
+                </div>
+            </figure>
+            <div className="card-body">
+                <h2 className="card-title">{props.username}</h2>
+                <p>{props.bio}</p>
+                <div className="card-actions justify-end">
+                    <button className="btn btn-primary" onClick={redirectToGithub}>To GitHub</button>
+                </div>
+            </div>
         </div>
     </main>;
 };
