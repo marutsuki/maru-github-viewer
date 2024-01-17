@@ -1,8 +1,17 @@
 export interface User {
     username: string;
     email: string;
-    company: string;
+    url: string;
     avatarUrl: string;
+    name: string,
+    company: string;
+    blog: string,
+    location: string,
+    bio: string;
+    twitter: string;
+    publicRepoCount: number;
+    followers: number;
+    following: number;
 }
 
 export function parseUser(json: Record<string, string>): User {
@@ -12,7 +21,16 @@ export function parseUser(json: Record<string, string>): User {
     return {
         username: json.login,
         email: json.email,
+        url: json.url,
+        avatarUrl: json.avatar_url,
+        name: json.name,
         company: json.company,
-        avatarUrl: json.avatar_url
+        blog: json.blog,
+        location: json.location,
+        bio: json.bio,
+        twitter: json.twitter,
+        publicRepoCount: parseInt(json.public_repos),
+        followers: parseInt(json.followers),
+        following: parseInt(json.following)
     };
 }
