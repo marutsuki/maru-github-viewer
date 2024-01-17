@@ -3,13 +3,14 @@
 import { getGithubApiEndpoint } from "@/src/util/environment";
 import { useRouter } from "next/navigation";
 import useSWR, { Fetcher } from "swr";
-import { User } from "./model/User";
+import { User, parseUser } from "./model/User";
 import { ERROR_PATH } from "@/src/util/constants";
 import { Error } from "@/app/model/Error";
 import { createTypedUrlQueryParams } from "@/src/util/type-utils";
 import { useEffect } from "react";
+import Image from "next/image";
 
-export const fetcher: Fetcher<User, string> = (id) => fetch(id).then(res => res.json());
+export const fetcher: Fetcher<User, string> = (id) => fetch(id).then(res => res.json()).then(data => parseUser(data));
 
 export default function Page({ params }: { params: { user: string}}) {
     const router = useRouter();
@@ -33,7 +34,10 @@ export default function Page({ params }: { params: { user: string}}) {
 }
 
 const UserPage: React.FC<User> = (props) => {
+    console.log(props);
     return <main>
-        <div className="w-40"> </div>
+        <div className="avatar">
+            <Image src={props.avatarUrl} alt="Profile Image" width={250} height={250} />
+        </div>
     </main>;
 };
