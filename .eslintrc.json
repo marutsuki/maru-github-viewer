@@ -1,3 +1,32 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": [
+      "eslint:recommended",
+      "plugin:@next/next/recommended",
+      "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": { "project": ["./tsconfig.json"] },
+  "plugins": [
+      "@typescript-eslint",
+      "@stylistic"
+  ],
+  "rules": {
+      "@typescript-eslint/strict-boolean-expressions": [
+          2,
+          {
+              "allowString" : false,
+              "allowNumber" : false
+          }
+      ],
+      "prefer-const": ["error", {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+    }],
+    "@stylistic/indent": ["error", 4],
+    "@stylistic/jsx-indent": ["error", 4],
+    "@stylistic/no-trailing-spaces": ["error"],
+    "@stylistic/quotes": ["error"],
+    "@stylistic/semi": ["error", "always"]
+  }
 }
