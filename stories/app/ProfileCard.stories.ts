@@ -1,9 +1,15 @@
+
 import { Meta, StoryObj } from "@storybook/react";
 import ProfileCard from "../../app/components/ProfileCard";
 
 const meta: Meta<typeof ProfileCard> = {
     component: ProfileCard,
-    title: "ProfileCard"
+    title: "ProfileCard",
+    parameters: {
+        backgrounds: {
+            default: "twitter"
+        }
+    }
 }
 export default meta 
 

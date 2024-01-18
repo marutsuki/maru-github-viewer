@@ -15,7 +15,8 @@ const config: Config = {
                 "card-gradient": "linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% )",
             },
             colors: {
-                "card-overlay": "rgba(0, 0, 0, 0.80)"
+                "card-overlay": "rgba(0, 0, 0, 0.80)",
+                "card-overlay-active": "rgba(255, 255, 255, 0.20)"
             },
             transitionTimingFunction: {
 
@@ -27,7 +28,7 @@ const config: Config = {
             }
         },
     },
-    plugins: [require("daisyui")],
+    plugins: [require("daisyui"), require('@tailwindcss/line-clamp')],
     daisyui: {
         themes: ["dark", "corporate"]
     }
