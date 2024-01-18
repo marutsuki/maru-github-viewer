@@ -21,6 +21,9 @@ html {
 }
 
 body {
+  position: relative;
+  
+  z-index: -100;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
