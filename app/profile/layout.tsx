@@ -1,7 +1,7 @@
 "use client";
 
 import StoreProvider from "../components/StoreProvider";
-import SearchBar from "./components/BrowserMockupWrapper";
+import BrowserMockupWrapper from "./components/BrowserMockupWrapper";
 
 export default function ProfileLayout({
     children,
@@ -11,10 +11,9 @@ export default function ProfileLayout({
     return (
         <main className="p-16">
             <StoreProvider>
-
-
-                <SearchBar/>
-                { children }
+                <BrowserMockupWrapper>
+                    { children }
+                </BrowserMockupWrapper>
             </StoreProvider>
         </main>
     );

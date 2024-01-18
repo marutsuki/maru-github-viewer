@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 type UserSearchState = {
     activeFilter: string;
@@ -21,4 +22,5 @@ const userSearchSlice = createSlice({
 });
 
 export const { updateUserSearch } = userSearchSlice.actions;
+export const selectUserSearch = (state: RootState) => state.userSearchReducer;
 export default userSearchSlice.reducer;
