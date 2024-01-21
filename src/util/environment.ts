@@ -1,8 +1,8 @@
-export function getGithubApiSecret(): string {
-    if (process.env.GITHUB_APP_TOKEN === undefined) {
+export function getGithubApiToken(): string {
+    if (process.env.GITHUB_API_TOKEN === undefined) {
         throw new Error("Failed to get Github API token");
     }
-    return process.env.GITHUB_APP_TOKEN;
+    return process.env.GITHUB_API_TOKEN;
 }
 
 export function getGithubApiEndpoint(): string {

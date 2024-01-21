@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+const THEMATIC_GRADIENT = "linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% )";
 const config: Config = {
     content: [
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,7 +13,7 @@ const config: Config = {
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
                 "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-                "card-gradient": "linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% )",
+                "thematic-gradient": THEMATIC_GRADIENT,
             },
             colors: {
                 "card-overlay": "rgba(0, 0, 0, 0.80)",
@@ -25,12 +26,15 @@ const config: Config = {
             scale: {
                 "card-hover-x": "1.2666",
                 "card-hover-y": "0.7895"
+            },
+            borderColor: {
+                "thematic-gradient": THEMATIC_GRADIENT,
             }
         },
     },
-    plugins: [require("daisyui"), require('@tailwindcss/line-clamp')],
+    plugins: [require("daisyui")],
     daisyui: {
-        themes: ["dark", "corporate"]
+        themes: ["light", "corporate", "dracula"]
     }
 };
 export default config;

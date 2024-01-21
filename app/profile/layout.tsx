@@ -1,7 +1,7 @@
 "use client";
 
 import StoreProvider from "../components/StoreProvider";
-import BrowserMockupWrapper from "./components/BrowserMockupWrapper";
+import SearchBar from "./components/SearchBar";
 
 export default function ProfileLayout({
     children,
@@ -9,12 +9,11 @@ export default function ProfileLayout({
     children: React.ReactNode
 }) {
     return (
-        <main className="p-16">
-            <StoreProvider>
-                <BrowserMockupWrapper>
-                    { children }
-                </BrowserMockupWrapper>
-            </StoreProvider>
-        </main>
+        <StoreProvider>
+            <SearchBar/>
+            <main className="m-16 mockup-browser border border-base-300 shadow-lg">
+                { children }
+            </main>
+        </StoreProvider>
     );
 }
