@@ -1,12 +1,13 @@
 "use client";
 
 import { getGithubApiEndpoint, getGithubApiToken } from "@/util/environment";
-import { Fetcher } from "swr";
+import useSWR, { Fetcher } from "swr";
 import { useSelector } from "react-redux";
-import { selectUserSearch } from "@/client/user/userSearchSlice";
+import { selectUserSearch, updateUserSearch } from "@/client/user/userSearchSlice";
 import { MinimalUser, parseMinimalUser } from "@/model/MinimalUser";
 import { useRouter } from "next/navigation";
 import ProfileCard from "@/components/ProfileCard";
+import Search from "@/components/search/Search";
 
 const RESULTS_TO_SHOW = 8;
 
@@ -31,30 +32,37 @@ const testObject = [
     },
     {
         "username": "sadada233245",
+        "bio": null,
         "avatarUrl": "/identicon.png"
     },
     {
         "username": "Sadadar",
+        "bio": null,
         "avatarUrl": "/identicon.png"
     },
     {
         "username": "sadadankon",
+        "bio": null,
         "avatarUrl": "/identicon.png"
     },
     {
         "username": "sadada725",
+        "bio": null,
         "avatarUrl": "/identicon.png"
     },
     {
         "username": "Sadada2008",
+        "bio": null,
         "avatarUrl": "/identicon.png"
     },
     {
         "username": "sadadasd456",
+        "bio": null,
         "avatarUrl": "/identicon.png"
     }
 ];
 
+const UserTypedSearch = Search<MinimalUser>;
 export default function Page() {
     const router = useRouter();
     const usernameFilter = useSelector(selectUserSearch);
@@ -62,8 +70,8 @@ export default function Page() {
     // Using dummy data, revert back to useSWR later
     const { data, error } = { data: testObject, error: undefined };
 
-    const redirectToProfile = (username: string) => {
-        router.push(`/profile/${username}`);
+    const redirectToProfile = (user: MinimalUser) => {
+        router.push(`/profile/${user.username}`);
     };
 
     if (error !== undefined) {
@@ -71,18 +79,18 @@ export default function Page() {
     }
 
     return <main>
-        <div className="grid grid-cols-4 place-items-center">
-            {
-                (data === undefined ? [] : data).map(user =>
-                    <ProfileCard
-                        title={user.username}
-                        imageUrl={user.avatarUrl}
-                        description={user.bio === undefined ? "This user has not written a bio :(" : user.bio}
-                        onClick={() => redirectToProfile(user.username)}
-                    />
-                )
+        <UserTypedSearch
+            onInputUpdate={input => updateUserSearch(input)}
+            data={data}
+            resultComponentProvider={(user, key) =>
+                <ProfileCard
+                    key={"user:" + key}
+                    title={user.username}
+                    imageUrl={user.avatarUrl}
+                    description={user.bio === null ? "This user has not written a bio :(" : user.bio}
+                    onClick={() => redirectToProfile(user)}
+                />
             }
-        </div>
-
+        />
     </main>;
 }
