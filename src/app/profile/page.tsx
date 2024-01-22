@@ -1,12 +1,12 @@
 "use client";
 
-import { getGithubApiEndpoint, getGithubApiToken } from "@/src/util/environment";
+import { getGithubApiEndpoint, getGithubApiToken } from "@/util/environment";
 import { Fetcher } from "swr";
 import { useSelector } from "react-redux";
-import { selectUserSearch } from "@/src/client/user/userSearchSlice";
-import { MinimalUser, parseMinimalUser } from "./model/MinimalUser";
+import { selectUserSearch } from "@/client/user/userSearchSlice";
+import { MinimalUser, parseMinimalUser } from "@/model/MinimalUser";
 import { useRouter } from "next/navigation";
-import ProfileCard from "@/app/components/ProfileCard";
+import ProfileCard from "@/components/ProfileCard";
 
 const RESULTS_TO_SHOW = 8;
 

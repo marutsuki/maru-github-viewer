@@ -1,4 +1,4 @@
-import { updateUserSearch } from "@/src/client/user/userSearchSlice";
+import { updateUserSearch } from "@/client/user/userSearchSlice";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 

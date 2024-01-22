@@ -1,12 +1,12 @@
 "use client";
 
-import { getGithubApiEndpoint } from "@/src/util/environment";
+import { getGithubApiEndpoint } from "@/util/environment";
 import { useRouter } from "next/navigation";
 import useSWR, { Fetcher } from "swr";
-import { User, parseUser } from "./model/User";
-import { ERROR_PATH } from "@/src/util/constants";
-import { Error } from "@/app/model/Error";
-import { createTypedUrlQueryParams } from "@/src/util/type-utils";
+import { User, parseUser } from "@/model/User";
+import { ERROR_PATH } from "@/util/constants";
+import { Error } from "@/model/Error";
+import { createTypedUrlQueryParams } from "@/util/type-utils";
 import { useEffect } from "react";
 import Image from "next/image";
 

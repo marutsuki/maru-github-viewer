@@ -3,9 +3,7 @@ import type { Config } from "tailwindcss";
 const THEMATIC_GRADIENT = "linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% )";
 const config: Config = {
     content: [
-        "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/**/*.{js,ts,jsx,tsx,mdx}",
         "./stories/**/*.{js,ts,jsx,tsx,mdx}"
     ],
     theme: {
