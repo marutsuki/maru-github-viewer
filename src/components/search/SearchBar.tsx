@@ -1,5 +1,5 @@
-import { Ref, forwardRef, useState } from "react";
-import { DoubleDash } from "./common/symbols";
+import { forwardRef, useState } from "react";
+import { DoubleDash } from "@/components/common/symbols";
 
 type SearchBarProps = {
     className?: string;

@@ -11,7 +11,6 @@ export default function ProfileLayout({
 }) {
     return (
         <StoreProvider>
-
             { children }
         </StoreProvider>
     );

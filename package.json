@@ -13,10 +13,13 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@tailwindcss/line-clamp": "^0.4.4",
+    "commonmark": "^0.30.0",
     "daisyui": "^4.6.0",
+    "marked": "^11.1.1",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-markdown": "^9.0.1",
     "react-redux": "^9.1.0",
     "swr": "^2.2.4"
   },
@@ -30,6 +33,7 @@
     "@storybook/react": "^7.6.9",
     "@storybook/test": "^7.6.9",
     "@stylistic/eslint-plugin": "^1.5.4",
+    "@types/commonmark": "^0.27.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

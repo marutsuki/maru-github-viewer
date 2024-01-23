@@ -5,6 +5,10 @@ export function getGithubApiToken(): string {
     return process.env.GITHUB_API_TOKEN;
 }
 
+export function getGithubRawEndpoint(): string {
+    return "https://raw.githubusercontent.com/";
+}
+
 export function getGithubApiEndpoint(): string {
     return "https://api.github.com";
 }

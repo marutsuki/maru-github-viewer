@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { SearchBar } from "../SearchBar";
+import { SearchBar } from "./SearchBar";
 import { SearchPopupWrapper } from "./SearchPopupWrapper";
 import { assertIsNode } from "@/util/type-utils";
 import { SearchResults, SearchResultsLoading } from "./SearchResults";
