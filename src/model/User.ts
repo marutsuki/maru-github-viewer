@@ -3,15 +3,17 @@ export interface User {
     email: string;
     url: string;
     avatarUrl: string;
-    name: string,
+    name: string;
     company: string;
-    blog: string,
-    location: string,
+    blog: string;
+    location: string;
     bio: string;
     twitter: string;
     publicRepoCount: number;
     followers: number;
     following: number;
+    ageInMonths: number;
+    reposUrl: string;
 }
 
 export function parseUser(json: Record<string, string>): User {
@@ -31,6 +33,13 @@ export function parseUser(json: Record<string, string>): User {
         twitter: json.twitter,
         publicRepoCount: parseInt(json.public_repos),
         followers: parseInt(json.followers),
-        following: parseInt(json.following)
+        following: parseInt(json.following),
+        reposUrl: json.repos_url,
+        ageInMonths: getAgeInMonths(new Date(Date.parse(json.created_at)))
     };
+}
+
+export function getAgeInMonths(creationDate: Date): number {
+    const now = new Date(Date.now());
+    return (now.getFullYear() - creationDate.getFullYear()) * 12 - creationDate.getMonth() + now.getMonth();
 }

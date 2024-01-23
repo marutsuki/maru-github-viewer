@@ -3,15 +3,18 @@ import Image from "next/image";
 interface ExpandedProfileCardProps {
     onClick?: () => void;
     title: string;
+    subtitle?: string;
+    titleAside?: React.ReactNode;
     imageUrl: string;
     description: string;
     children?: React.ReactNode;
+    extraInfo?: Record<string, string>;
 }
 export default function ExpandedProfileCard({ children, ...props }: ExpandedProfileCardProps) {
-    return <div className="group relative card w-56 h-72 m-8 rounded-lg cursor-pointer p-4 flex-column box-border bg-card-overlay
-        before:left-[-0.5rem] before:top-[-0.5rem] before:w-[15rem] before:h-[19rem] before:content-[''] before:absolute before:rounded-md before:bg-thematic-gradient before:z-[-1]
-        after:content-[''] after:absolute after:bg-thematic-gradient after:blur-lg after:-inset-0 after:right-0 after:z-[-2]
-        active:bg-card-overlay-active hover:
+    return <div className="group relative card w-96 max-w-full h-min m-8 rounded-lg p-4 flex-column box-border bg-card-overlay text-text-faded
+        before:absolute before:-inset-1 before:content-[''] before:absolute before:rounded-md before:bg-thematic-gradient before:z-[-1]
+        after:content-[''] after:absolute after:bg-thematic-gradient after:blur-lg after-inset-0 after:z-[-2]
+        hover:text-text-active
         duration-100 ease-out"
     onClick={props.onClick !== undefined ? props.onClick : undefined}>
         <div className="avatar opacity-40 group-hover:opacity-100 duration-200 ">
@@ -20,10 +23,21 @@ export default function ExpandedProfileCard({ children, ...props }: ExpandedProf
             </div>
         </div>
 
-        <div className="absolute top-36 flex-column">
-            <h2 className="card-title opacity-40 group-hover:opacity-100 text-gray-100 h-8">{props.title}</h2>
-            <p className="opacity-40 text-gray-200 duration-100 ease-out group-hover:opacity-100 line-clamp-3">{props.description}</p>
+        <div className="relative py-4 flex-column">
+            <div className="flex flex-row justify-between items-center">
+                <h1 className="card-title h-8">{props.title}</h1>
+                <div>
+                    { props.titleAside !== undefined && props.titleAside }
+                </div>
+            </div>
+
+            <h2><b>{props.subtitle === undefined ? "" : props.subtitle }</b></h2>
+            <p className="duration-100 ease-out line-clamp-3">{props.description}</p>
         </div>
+        <div>
+            { props.extraInfo  !== undefined && Object.entries(props.extraInfo).map(([key, value]) => <div>{key}: {value}</div>) }
+        </div>
+
         { children }
     </div>;
 }

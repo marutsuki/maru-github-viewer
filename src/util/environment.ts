@@ -18,3 +18,7 @@ export function getGithubApiRequestDefaultHeaders(): Record<string, string> {
         "X-GitHub-Api-Version": "2022-11-28"
     };
 }
+
+export function getTwitterUrl(): string {
+    return "https://twitter.com";
+}

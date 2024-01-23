@@ -5,8 +5,9 @@ interface ProfileCardProps {
     title: string;
     imageUrl: string;
     description: string;
+    children?: React.ReactNode;
 }
-export default function ProfileCard(props: ProfileCardProps) {
+export default function ProfileCard({ children, ...props } : ProfileCardProps) {
     return <div className="group relative card w-56 h-72 m-8 rounded-lg cursor-pointer p-4 flex-column box-border bg-card-overlay
         before:left-[-0.5rem] before:top-[-0.5rem] before:w-[15rem] before:h-[19rem] before:content-[''] before:absolute before:rounded-md before:bg-thematic-gradient before:z-[-1]
         before:transition-transform before:ease-overshoot hover:before:rotate-90 before:duration-700 hover:before:scale-x-card-hover-x hover:before:scale-y-card-hover-y
@@ -24,5 +25,8 @@ export default function ProfileCard(props: ProfileCardProps) {
             <h2 className="card-title opacity-40 group-hover:opacity-100 text-gray-100 h-8">{props.title}</h2>
             <p className="opacity-0 text-gray-200 duration-100 ease-out group-hover:opacity-100 line-clamp-3">{props.description}</p>
         </div>
+
+        { children }
+
     </div>;
 }

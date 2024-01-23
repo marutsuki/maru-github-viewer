@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import TailwindScrollbarPlugin from "tailwind-scrollbar";
 const THEMATIC_GRADIENT = "linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% )";
 const config: Config = {
     content: [
@@ -15,7 +15,13 @@ const config: Config = {
             },
             colors: {
                 "card-overlay": "rgba(0, 0, 0, 0.80)",
-                "card-overlay-active": "rgba(255, 255, 255, 0.20)"
+                "card-overlay-active": "rgba(255, 255, 255, 0.20)",
+                "theme-primary": "rgb(140, 154, 255)",
+                "theme-faded": "rgb(110, 110, 235)",
+                "theme-accent": "rgb(200, 200, 255)",
+                "theme-active": "rgb(225, 186, 255)",
+                "text-faded": "rgba(255, 255, 255, 0.4)",
+                "text-active": "rgb(200, 200, 200)"
             },
             transitionTimingFunction: {
 
@@ -30,7 +36,7 @@ const config: Config = {
             }
         },
     },
-    plugins: [require("daisyui")],
+    plugins: [require("daisyui"), TailwindScrollbarPlugin({ nocompatible: true })],
     daisyui: {
         themes: ["light", "corporate", "dracula"]
     }
