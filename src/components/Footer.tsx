@@ -1,5 +1,5 @@
 export default function Footer() {
-    return <footer className="footer absolute bottom-0 px-10 py-4 bg-neutral text-neutral-content">
+    return <footer className="footer relative bottom-0 px-10 py-4 bg-neutral text-neutral-content">
         <aside className="p-2">
             <p>Made with Next.js.<br/>By marutsuki</p>
         </aside>

@@ -18,7 +18,8 @@ const config: Config = {
                 "profile-layout": "1fr 1fr",
             },
             gridTemplateRows: {
-                "layout": "3fr 2fr"
+                "main-layout": "4rem 1fr 6rem",
+                "profile-layout": "3fr 2fr",
             },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

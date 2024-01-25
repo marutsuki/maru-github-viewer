@@ -12,7 +12,7 @@ export default function ProfileCard({ children, ...props } : ProfileCardProps) {
         before:left-[-0.5rem] before:top-[-0.5rem] before:w-[15rem] before:h-[19rem] before:content-[''] before:absolute before:rounded-md before:bg-thematic-gradient before:z-[-1]
         before:transition-transform before:ease-overshoot hover:before:rotate-90 before:duration-700 hover:before:scale-x-card-hover-x hover:before:scale-y-card-hover-y
         after:content-[''] after:absolute after:bg-thematic-gradient after:blur-lg after:-inset-0 after:right-0 after:z-[-2]
-        active:bg-card-overlay-active hover:
+        active:bg-card-overlay-active
         duration-100 ease-out"
     onClick={props.onClick !== undefined ? props.onClick : undefined}>
         <div className="avatar opacity-40 group-hover:opacity-100 duration-200 ">

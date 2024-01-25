@@ -12,7 +12,6 @@ const AnimationWrapper: React.FC<AnimationWrapperProps> = ({ show, children, onS
     const childRef = useRef<HTMLSpanElement>(null);
     const [hidden, setHidden] = useState(!show);
     useEffect(() => {
-        console.log("show is", childRef.current);
         if (childRef.current === null) {
             return;
         }

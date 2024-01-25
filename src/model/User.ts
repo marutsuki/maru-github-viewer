@@ -3,10 +3,10 @@ export interface User {
     email: string;
     url: string;
     avatarUrl: string;
-    name: string;
-    company: string;
+    name: string | null;
+    company: string | null;
     blog: string;
-    location: string;
+    location: string | null;
     bio: string;
     twitter: string;
     publicRepoCount: number;

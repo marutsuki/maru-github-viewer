@@ -18,11 +18,11 @@ export default function RepositoryCard({ name, description, htmlUrl, httpUrl, ss
     const openHtmlUrlInNewTab = () => {
         window.open(htmlUrl, "_blank");
     };
-    return <ThemedWrapper {...props} >
-        <div className="relative w-48">
+    return <ThemedWrapper className="mx-8 my-4"{...props} >
+        <div className="relative w-72">
             <div className="flex flex-row justify-between">
 
-                <h2> { name } </h2>
+                <h2 className="text-xl"> { name } </h2>
 
                 <span onClick={() => setActive(true)}>
                     <Git className="fill-theme-primary cursor-pointer hover:fill-theme-accent active:fill-white duration-200"/>
@@ -49,7 +49,9 @@ export default function RepositoryCard({ name, description, htmlUrl, httpUrl, ss
                     </AnimationWrapper></span>
 
             </div>
-            <p className="block line-clamp-3 h-[4.5rem]"> { description === null ? "No description..." : description } </p>
+            <div className="block h-[4.5rem]">
+                <p className="line-clamp-3"> { description === null ? "No description..." : description } </p>
+            </div>
             <button className="my-4 border rounded-md duration-100 w-full
                 active:bg-theme-active active:text-black" onClick={openHtmlUrlInNewTab}>To GitHub</button>
         </div>
