@@ -8,6 +8,18 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            gridTemplateAreas: {
+                "profile-layout": [
+                    "left right",
+                    "bottom bottom",
+                ],
+            },
+            gridTemplateColumns: {
+                "profile-layout": "1fr 1fr",
+            },
+            gridTemplateRows: {
+                "layout": "3fr 2fr"
+            },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
                 "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -21,7 +33,8 @@ const config: Config = {
                 "theme-accent": "rgb(200, 200, 255)",
                 "theme-active": "rgb(225, 186, 255)",
                 "text-faded": "rgba(255, 255, 255, 0.4)",
-                "text-active": "rgb(200, 200, 200)"
+                "text-active": "rgb(200, 200, 200)",
+                "twitter": "rgb(8, 160, 233)"
             },
             transitionTimingFunction: {
 
@@ -36,7 +49,7 @@ const config: Config = {
             }
         },
     },
-    plugins: [require("daisyui"), TailwindScrollbarPlugin({ nocompatible: true })],
+    plugins: [require("daisyui"), TailwindScrollbarPlugin({ nocompatible: true }), require("@savvywombat/tailwindcss-grid-areas")],
     daisyui: {
         themes: ["light", "corporate", "dracula"]
     }

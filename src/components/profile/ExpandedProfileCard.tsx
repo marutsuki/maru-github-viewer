@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ThemedWrapper from "../common/ThemedWrapper";
 
 interface ExpandedProfileCardProps {
     onClick?: () => void;
@@ -11,12 +12,7 @@ interface ExpandedProfileCardProps {
     extraInfo?: Record<string, string>;
 }
 export default function ExpandedProfileCard({ children, ...props }: ExpandedProfileCardProps) {
-    return <div className="group relative card w-96 max-w-full h-min m-8 rounded-lg p-4 flex-column box-border bg-card-overlay text-text-faded
-        before:absolute before:-inset-1 before:content-[''] before:absolute before:rounded-md before:bg-thematic-gradient before:z-[-1]
-        after:content-[''] after:absolute after:bg-thematic-gradient after:blur-lg after-inset-0 after:z-[-2]
-        hover:text-text-active
-        duration-100 ease-out"
-    onClick={props.onClick !== undefined ? props.onClick : undefined}>
+    return <ThemedWrapper>
         <div className="avatar opacity-40 group-hover:opacity-100 duration-200 ">
             <div className="w-24 mask mask-squircle">
                 <Image className="h-32 w-32 object-cover duration-100 ease-out" src={props.imageUrl} alt="Profile Image" width={300} height={300} />
@@ -39,5 +35,5 @@ export default function ExpandedProfileCard({ children, ...props }: ExpandedProf
         </div>
 
         { children }
-    </div>;
+    </ThemedWrapper>;
 }

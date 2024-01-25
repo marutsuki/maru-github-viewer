@@ -20,7 +20,7 @@ export default function ReadMe({ readmeUrl }: { readmeUrl: string }) {
             <span className="loading loading-ring loading-lg"></span>
         </section>;
     }
-    return <div className="relative bg-thematic-gradient rounded-md opacity-70
+    return <div className="relative h-full bg-thematic-gradient rounded-md opacity-70
         hover:opacity-100 transition duration-100
         after:content-[''] after:absolute after:bg-thematic-gradient after:blur-lg after:-inset-0 after:right-0 after:z-[-2]">
         <section

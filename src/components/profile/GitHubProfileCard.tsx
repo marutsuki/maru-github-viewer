@@ -3,7 +3,8 @@ import { Company, Twitter } from "../common/symbols";
 import { getTwitterUrl } from "@/util/environment";
 import ExpandedProfileCard from "./ExpandedProfileCard";
 
-export default function GitHubProfileCard(props: User) {
+export type GitHubProfileCardProps = User;
+export default function GitHubProfileCard(props: GitHubProfileCardProps) {
 
     const openGitHubInNewTab = () => {
         window.open(props.url, "_blank");
@@ -19,7 +20,9 @@ export default function GitHubProfileCard(props: User) {
         description={props.bio}
         imageUrl={props.avatarUrl}
         titleAside={<>
-            { props.twitter !== undefined && <span onClick={openTwitterInNewTab}><Twitter className="cursor-pointer fill-white active:fill-theme-active transition duration-200"/></span>}
+            { props.twitter !== undefined && <span onClick={openTwitterInNewTab}>
+                <Twitter className="cursor-pointer fill-white hover:fill-twitter active:fill-theme-active transition duration-200"/>
+            </span>}
         </>}
     >
         { props.company !== undefined && <p><Company className="mr-2 fill-text-active inline-block"/> <span>{ props.company }</span> </p>}
