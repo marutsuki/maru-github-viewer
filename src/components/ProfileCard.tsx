@@ -8,7 +8,7 @@ interface ProfileCardProps {
     children?: React.ReactNode;
 }
 export default function ProfileCard({ children, ...props } : ProfileCardProps) {
-    return <div className="group relative card w-56 h-72 m-8 rounded-lg cursor-pointer p-4 flex-column box-border bg-card-overlay
+    return <div className="pointer-events-auto group relative card w-56 h-72 m-8 rounded-lg cursor-pointer p-4 flex-column box-border bg-card-overlay
         before:left-[-0.5rem] before:top-[-0.5rem] before:w-[15rem] before:h-[19rem] before:content-[''] before:absolute before:rounded-md before:bg-thematic-gradient before:z-[-1]
         before:transition-transform before:ease-overshoot hover:before:rotate-90 before:duration-700 hover:before:scale-x-card-hover-x hover:before:scale-y-card-hover-y
         after:content-[''] after:absolute after:bg-thematic-gradient after:blur-lg after:-inset-0 after:right-0 after:z-[-2]

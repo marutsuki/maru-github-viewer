@@ -7,11 +7,14 @@ import AnimationWrapper from "../common/AnimationWrapper";
 
 type SearchProps<T> = {
     onInputUpdate: (input: string) => void;
-    data: T[];
+    isError?: boolean;
+    data: T[] | null;
+    onClick: (item: T) => void;
+    shouldCloseOnClick?: boolean;
     resultComponentProvider: (user: T, key: number) => React.ReactNode;
 };
 
-export default function Search<T>({ onInputUpdate, data, resultComponentProvider }: SearchProps<T>): React.ReactNode {
+export default function Search<T>({ onInputUpdate, isError = false, data, onClick, shouldCloseOnClick = true, resultComponentProvider }: SearchProps<T>): React.ReactNode {
     const searchRef = useRef<HTMLDivElement>(null);
     const [focused, setFocused] = useState(false);
 
@@ -27,7 +30,7 @@ export default function Search<T>({ onInputUpdate, data, resultComponentProvider
     }, []);
 
     return <>
-        { focused && <div className="absolute w-[100vw] h-[100vh] bg-black bg-opacity-50 z-[-3]"/> }
+        { focused && <div className="absolute w-[100vw] h-[100vh] bg-black bg-opacity-50 z-[-1]"/> }
         <div className="relative">
 
             <SearchBar ref={searchRef} onInputUpdate={onInputUpdate} onFocus={() => {
@@ -48,9 +51,17 @@ export default function Search<T>({ onInputUpdate, data, resultComponentProvider
                             opacity: "0%"
                         }
                     ]}>
-                    <SearchPopupWrapper className="-top-2.5 pt-12 absolute w-[75vw] -translate-x-1/2">
+                    <SearchPopupWrapper className="-top-2.5 pt-12 absolute w-[75vw] -translate-x-1/2 pointer-events-none z-[-1] overflow-hidden">
                         {
-                            data === undefined ? <SearchResultsLoading/> : <SearchResults items={data} resultComponentProvider={resultComponentProvider}/>
+                            isError ? <h1>An unexpected error occurred!</h1> : data === null ? <SearchResultsLoading/> : <SearchResults
+                                items={data}
+                                onClick={(item) => {
+                                    onClick(item);
+                                    if (shouldCloseOnClick) {
+                                        setFocused(false);
+                                    }
+                                }}
+                                resultComponentProvider={resultComponentProvider}/>
                         }
                     </SearchPopupWrapper>
                 </AnimationWrapper>

@@ -1,5 +1,4 @@
 
-import Repository from "@/model/Repository";
 import { copyText } from "@/util/copy";
 import React, { useEffect, useRef, useState } from "react";
 import { Copy } from "./symbols";

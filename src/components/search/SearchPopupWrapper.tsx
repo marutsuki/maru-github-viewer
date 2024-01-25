@@ -6,7 +6,7 @@ type SearchPopupWrapperProps = {
 };
 
 export const SearchPopupWrapper: React.FC<SearchPopupWrapperProps> = (({ children, className = "" }) => {
-    return <main className={`mockup-browser border border-base-300 shadow-lg ${className}`}>
+    return <section className={`mockup-browser border border-base-300 shadow-lg bg-black/75 backdrop-blur-md ${className}`}>
         { children }
-    </main>;
+    </section>;
 });

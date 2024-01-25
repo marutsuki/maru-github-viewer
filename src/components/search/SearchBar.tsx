@@ -6,13 +6,13 @@ type SearchBarProps = {
     onInputUpdate: (input: string) => void;
     onFocus?: () => void;
     onUnfocus?: () => void;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 };
 
 export const SearchBar = forwardRef<HTMLDivElement, SearchBarProps>(({ className = "", children, onInputUpdate = () => {}, onFocus = () => {}}, ref) => {
     const [input, setInput] = useState("");
 
-    return <div ref={ref} className={`relative w-full h-20 p-6 bg-neutral flex justify-center ${className}`}>
+    return <div ref={ref} className={`relative w-full p-4 bg-neutral flex justify-center z-[100] ${className}`}>
         <div className="h-8 w-80 relative">
             <DoubleDash className="absolute right-full -bottom-4"/>
             <div className="h-full w-full absolute p-2 bg-thematic-gradient blur-md"></div>

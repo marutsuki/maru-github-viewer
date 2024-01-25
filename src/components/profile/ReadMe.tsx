@@ -55,7 +55,3 @@ export default function ReadMe({ readmeUrl }: { readmeUrl: string }) {
 
     </div>;
 }
-
-function uuseSWRImmutable(readmeUrl: string, fetcher: (arg: string) => import("swr/_internal").FetcherResponse<string>): { data: any; error: any; } {
-    throw new Error("Function not implemented.");
-}
