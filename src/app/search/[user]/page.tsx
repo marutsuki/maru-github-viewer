@@ -6,7 +6,6 @@ import GitHubProfileCard from "@/components/profile/GitHubProfileCard";
 import RepositorySection from "@/components/profile/RepositorySection";
 
 export default function Page({ params }: { params: { user: string} } ) {
-    // TODO: Remove test code
     return <main className="p-12 h-full overflow-hidden grid grid-areas-profile-layout grid-cols-profile-layout grid-rows-profile-layout [&>*]:m-2">
         <section className="grid-in-left">
             <GitHubProfileCard user={ params.user } /></section>
