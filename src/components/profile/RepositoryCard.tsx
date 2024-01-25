@@ -3,16 +3,16 @@ import AnimationWrapper from "../common/AnimationWrapper";
 import ThemedWrapper from "../common/ThemedWrapper";
 import { Git } from "../common/symbols";
 import CloneWindow from "../common/CloneWindow";
+import { CloneMethod } from "@/model/Repository";
 
 export type RepositoryCardProps = {
     name: string;
     description: string;
     htmlUrl: string;
-    httpUrl: string;
-    sshUrl: string;
+    cloneUrls: Record<CloneMethod, string>
 } & JSX.IntrinsicAttributes;
 
-export default function RepositoryCard({ name, description, htmlUrl, httpUrl, sshUrl, ...props }: RepositoryCardProps) {
+export default function RepositoryCard({ name, description, htmlUrl, cloneUrls, ...props }: RepositoryCardProps) {
     const [active, setActive] = useState(false);
 
     const openHtmlUrlInNewTab = () => {
@@ -42,8 +42,7 @@ export default function RepositoryCard({ name, description, htmlUrl, httpUrl, ss
                             }
                         ]}>
                         <CloneWindow
-                            httpUrl={httpUrl}
-                            sshUrl={sshUrl}
+                            cloneUrls={cloneUrls}
                             onExit={() => setActive(false)}
                         />
                     </AnimationWrapper></span>

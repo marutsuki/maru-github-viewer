@@ -1,4 +1,4 @@
-export interface User {
+export default interface User {
     username: string;
     email: string;
     url: string;
@@ -16,7 +16,8 @@ export interface User {
     reposUrl: string;
 }
 
-export function parseUser(json: Record<string, string>): User {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function parseUser(json: any): User {
     if (json.login === undefined) {
         throw new Error("User could not be found :((");
     }

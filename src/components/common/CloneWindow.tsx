@@ -9,12 +9,11 @@ enum CloneMethod {
 }
 
 export type CloneWindowProps = {
-    sshUrl: string;
-    httpUrl: string;
+    cloneUrls: Record<CloneMethod, string>;
     onExit: () => void;
 };
 
-export default function CloneWindow({ sshUrl, httpUrl, onExit }: CloneWindowProps): React.ReactNode {
+export default function CloneWindow({ cloneUrls, onExit }: CloneWindowProps): React.ReactNode {
     const [cloneMethod, setCloneMethod] = useState<CloneMethod>(CloneMethod.HTTP);
     const cloneUrlRef = useRef<HTMLInputElement>(null);
     const activeCloneWindow = useRef<HTMLDivElement>(null);
@@ -41,15 +40,15 @@ export default function CloneWindow({ sshUrl, httpUrl, onExit }: CloneWindowProp
             {
                 Object.keys(CloneMethod).filter(method => isNaN(parseInt(method))).map(method =>
                     <button
-                        className={cloneMethod === CloneMethod[method] ? "w-12 after:block after:content-[''] after:bg-pink-400 after:px-1 after:w-full after:h-1" : "w-12"}
+                        className={cloneMethod === CloneMethod[method as keyof typeof CloneMethod] ? "w-12 after:block after:content-[''] after:bg-pink-400 after:px-1 after:w-full after:h-1" : "w-12"}
                         key={method}
-                        onClick={() => setCloneMethod(CloneMethod[method])}>
+                        onClick={() => setCloneMethod(CloneMethod[method as keyof typeof CloneMethod])}>
                         {method}
                     </button>)
             }
         </div>
         <div className="w-full flex flex-row justify-between">
-            <input ref={cloneUrlRef} className="w-40 border rounded-md" value={cloneMethod === CloneMethod.HTTP ? httpUrl : sshUrl} readOnly={true}/>
+            <input ref={cloneUrlRef} className="w-40 border rounded-md" value={cloneUrls[cloneMethod] === undefined ? "" : cloneUrls[cloneMethod]} readOnly={true}/>
             <span onClick={() => cloneUrlRef.current !== null && copyText(cloneUrlRef.current.value) }>
                 <Copy className="cursor-pointer fill-theme-faded duration-200 active:fill-theme-active"/>
             </span>

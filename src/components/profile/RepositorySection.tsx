@@ -41,8 +41,7 @@ export default function RepositorySection({ user }: { user: string }) {
                         name={repo.name}
                         description={repo.description === null ? "No description..." : repo.description}
                         htmlUrl={repo.htmlUrl}
-                        httpUrl={repo.cloneUrl.http}
-                        sshUrl={repo.cloneUrl.ssh}
+                        cloneUrls={repo.cloneUrls}
                     />)
                 }
             </div>

@@ -1,24 +1,27 @@
 export default interface Repository {
     name: string;
     htmlUrl: string;
-    cloneUrl: {
-        http: string;
-        ssh: string;
-    },
+    cloneUrls: Record<CloneMethod, string>
     language: string;
     lastUpdated: number;
     description: string | null;
     watchers: number;
 }
 
+export enum CloneMethod {
+    SSH,
+    HTTP
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function parseRepository(json: any): Repository {
     try {
         return {
             name: json.name,
             htmlUrl: json.clone_url,
-            cloneUrl: {
-                http: json.clone_url,
-                ssh: json.ssh_url
+            cloneUrls: {
+                [CloneMethod.HTTP]: json.clone_url,
+                [CloneMethod.SSH]: json.ssh_url
             },
             language: json.language,
             lastUpdated: Date.parse(json.updated_at),

@@ -1,4 +1,4 @@
-import { User, parseUser } from "@/model/User";
+import User, { parseUser } from "@/model/User";
 import { Company, Twitter } from "@/components/common/symbols";
 import { getGithubApiEndpoint, getTwitterUrl } from "@/util/environment";
 import ExpandedProfileCard from "./ExpandedProfileCard";

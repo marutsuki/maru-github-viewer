@@ -1,3 +1,3 @@
-export interface Error {
+export default interface Error {
     message: string;
 }
