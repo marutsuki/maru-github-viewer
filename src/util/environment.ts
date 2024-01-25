@@ -14,9 +14,17 @@ export function getGithubApiEndpoint(): string {
 }
 
 export function getGithubApiRequestDefaultHeaders(): Record<string, string> {
-    return {
-        "X-GitHub-Api-Version": "2022-11-28"
-    };
+    try {
+        const apiToken = getGithubApiToken();
+        return {
+            "Authorization": `Bearer ${apiToken}`,
+            "X-GitHub-Api-Version": "2022-11-28"
+        };
+    } catch (e: unknown) {
+        return {
+            "X-GitHub-Api-Version": "2022-11-28"
+        };
+    }
 }
 
 export function getTwitterUrl(): string {

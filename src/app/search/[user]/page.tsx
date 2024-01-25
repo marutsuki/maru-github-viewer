@@ -10,7 +10,7 @@ export default function Page({ params }: { params: { user: string} } ) {
     return <main className="p-12 h-full overflow-hidden grid grid-areas-profile-layout grid-cols-profile-layout grid-rows-profile-layout [&>*]:m-2">
         <section className="grid-in-left">
             <GitHubProfileCard user={ params.user } /></section>
-        <section className="relative grid-in-right"> <ReadMe readmeUrl={getGithubRawEndpoint().concat("/marutsuki/marutsuki/main/README.md")}/></section>
+        <section className="relative grid-in-right"> <ReadMe readmeUrl={getGithubRawEndpoint().concat(`/${params.user}/${params.user}/main/README.md`)}/></section>
         <section className="grid-in-bottom"><RepositorySection user={ params.user }/></section>
     </main>;
 }

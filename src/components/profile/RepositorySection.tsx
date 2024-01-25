@@ -1,16 +1,16 @@
 import Repository, { parseRepository } from "@/model/Repository";
 import { useMemo } from "react";
 import RepositoryCard from "./RepositoryCard";
-import useSWR, { Fetcher } from "swr";
+import { Fetcher } from "swr";
 import { getGithubApiEndpoint } from "@/util/environment";
+import { getUrlFetcher } from "@/util/client";
+import useSWRImmutable from "swr/immutable";
 
-
-export const fetcher: Fetcher<Repository[], string> = (url) => fetch(url).then(res => res.json()).then(data => data.map(item => parseRepository(item)));
+export const fetcher: Fetcher<Repository[], string> = getUrlFetcher(res => res.json().then(data => data.map((item: unknown) => parseRepository(item))));
 
 export default function RepositorySection({ user }: { user: string }) {
-    const { data, error } = useSWR(getGithubApiEndpoint().concat(`/users/${user}/repos`), fetcher);
+    const { data, error } = useSWRImmutable(getGithubApiEndpoint().concat(`/users/${user}/repos`), fetcher);
 
-    console.log(data);
     const sorted = useMemo(() => data === undefined ? null : data.toSorted((a, b) => b.watchers - a.watchers),
         [data]);
 
