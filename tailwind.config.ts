@@ -8,6 +8,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            animation: {
+                "fadein": "fadein 1s linear forwards"
+            },
             gridTemplateAreas: {
                 "profile-layout": [
                     "left right",
@@ -21,6 +24,16 @@ const config: Config = {
                 "home-layout": "1fr 6rem",
                 "main-layout": "4rem 1fr 6rem",
                 "profile-layout": "3fr 2fr",
+            },
+            keyframes: {
+                "fadein": {
+                    "0%": {
+                        "filter": "blur(100px)"
+                    },
+                    "100%": {
+                        "filter": "blur(0px)"
+                    }
+                }
             },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

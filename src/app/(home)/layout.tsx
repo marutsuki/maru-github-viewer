@@ -18,7 +18,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" data-theme="corporate">
-            <Footer/>
+            <body className={exo.className.concat(" grid grid-rows-home-layout")}>
+                { children }
+                <Footer/>
+            </body>
         </html>
     );
 }
