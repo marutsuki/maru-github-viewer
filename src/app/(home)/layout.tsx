@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Exo_2 } from "next/font/google";
 import "@/globals.css";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 
 const exo = Exo_2({ subsets: ["latin"] });
 

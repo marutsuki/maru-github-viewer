@@ -24,7 +24,7 @@ export default function GitHubSearch() {
     const { data, error } = useSWRImmutable(userSearch.length < MINIMUM_SEARCH_LENGTH ? "" : getGithubApiEndpoint().concat(`/search/users?q=${userSearch} in:user&per_page=${RESULTS_TO_SHOW}`), fetcher);
 
     const onProfileClick = (user: MinimalUser) => {
-        router.push(`/search/${user.username}`);
+        router.push(`/search/profile?user=${user.username}`);
     };
 
     return <UserTypedSearch
