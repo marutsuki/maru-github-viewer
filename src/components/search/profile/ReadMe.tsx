@@ -40,14 +40,16 @@ export default function ReadMe({ readmeUrl }: { readmeUrl: string }) {
 
     return (
         <>
-        <h2 className="text-2xl text-white hidden sm:block my-2">README.md</h2>
-        <div
-            className="relative h-full sm:min-h-72 rounded-md bg-thematic-gradient opacity-70
+            <h2 className="text-2xl text-white hidden sm:block my-2">
+                README.md
+            </h2>
+            <div
+                className="relative h-full sm:min-h-72 rounded-md bg-thematic-gradient opacity-70
         transition duration-100 after:absolute
         after:-inset-0 after:right-0 after:z-[-2] after:bg-thematic-gradient after:blur-lg after:content-[''] hover:opacity-100"
-        >
-            <section
-                className="absolute inset-1 block overflow-y-auto break-words rounded-lg bg-black bg-opacity-70 p-6
+            >
+                <section
+                    className="absolute inset-1 block overflow-y-auto break-words rounded-lg bg-black bg-opacity-70 p-6
             text-white
             scrollbar-thin scrollbar-thumb-theme-faded
             scrollbar-thumb-rounded-[5px] hover:scrollbar-thumb-theme-primary
@@ -57,9 +59,9 @@ export default function ReadMe({ readmeUrl }: { readmeUrl: string }) {
             [&_img]:m-2
             [&_img]:inline-block
             [&_p]:text-sm"
-                {...(setHtmlProps !== null && setHtmlProps)}
-            ></section>
-        </div>
+                    {...(setHtmlProps !== null && setHtmlProps)}
+                ></section>
+            </div>
         </>
     );
 }

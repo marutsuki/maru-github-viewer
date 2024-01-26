@@ -62,10 +62,10 @@ const config: Config = {
             },
         },
         screens: {
-            'lg': {'max': '1280px'},
-            'md': {'max': '1024px'},
-            'sm': {'max': '768px'},
-          }
+            lg: { max: "1280px" },
+            md: { max: "1024px" },
+            sm: { max: "768px" },
+        },
     },
     plugins: [
         require("daisyui"),
