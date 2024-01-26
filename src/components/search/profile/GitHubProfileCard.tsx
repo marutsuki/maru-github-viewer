@@ -54,10 +54,10 @@ export default function GitHubProfileCard({ user }: GitHubProfileCarddata) {
             }
         >
             {data.company !== null && (
-                <p>
+                <div className="flex flex-row items-end mb-1">
                     <Company className="mr-2 inline-block fill-text-active" />{" "}
                     <span>{data.company}</span>{" "}
-                </p>
+                </div>
             )}
             {data.location !== null && <p>{data.location}</p>}
             <hr className="my-2" />

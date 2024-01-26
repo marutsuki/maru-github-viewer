@@ -1,7 +1,7 @@
 "use client";
 
 import Search from "@/components/common/search/Search";
-import ProfileCard from "@/components/search/ProfileCard";
+import ProfileCard from "@/components/search/GitHubSearchResult";
 import MinimalUser, { parseMinimalUser } from "@/model/MinimalUser";
 import { getGithubApiEndpoint } from "@/util/environment";
 import { useRouter } from "next/navigation";
@@ -29,6 +29,7 @@ const fetcher = (userFilter: string) =>
                       data.items.map((item: unknown) => parseMinimalUser(item)),
                   ),
           );
+
 const UserTypedSearch = Search<MinimalUser>;
 
 export default function GitHubSearch() {
@@ -52,6 +53,7 @@ export default function GitHubSearch() {
             }
         }, SEARCH_UPDATE_DELAY);
     };
+
     return (
         <UserTypedSearch
             onInputUpdate={(input) => delayedSetUserSearch(input)}

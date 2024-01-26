@@ -5,11 +5,10 @@ interface ProfileCardProps {
     onClick?: () => void;
     title: string;
     imageUrl: string;
-    description: string;
     children?: React.ReactNode;
 }
 
-export default function ProfileCard({ children, ...props }: ProfileCardProps) {
+export default function GitHubSearchResult({ children, ...props }: ProfileCardProps) {
     return (
         <ThemedWrapper
             className="relative m-8 pointer-events-auto cursor-pointer duration-100 ease-out before:absolute before:z-[-1] before:-inset-1 before:rounded-md
@@ -20,9 +19,9 @@ export default function ProfileCard({ children, ...props }: ProfileCardProps) {
             onClick={props.onClick !== undefined ? props.onClick : undefined}
         >
             <div className="avatar opacity-40 duration-200 group-hover:opacity-100 ">
-                <div className="mask mask-squircle w-24">
+                <div className="mask mask-squircle w-40 m-4">
                     <Image
-                        className="h-32 w-32 lg:h-24 lg:w-24 object-cover duration-100 ease-out"
+                        className="object-cover duration-100 ease-out"
                         src={props.imageUrl}
                         alt="Profile Image"
                         width={300}
@@ -31,13 +30,10 @@ export default function ProfileCard({ children, ...props }: ProfileCardProps) {
                 </div>
             </div>
 
-            <div className="flex-column">
-                <h2 className="card-title h-8 text-gray-100 opacity-40 group-hover:opacity-100 line-clamp-1">
+            <div className="flex flex-row justify-center">
+                <h2 className="h-8 text-xl lg:text-lg text-gray-100 opacity-40 group-hover:opacity-100 line-clamp-1">
                     {props.title}
                 </h2>
-                <p className="lg:hidden line-clamp-3 text-gray-200 opacity-0 duration-100 ease-out group-hover:opacity-100">
-                    {props.description}
-                </p>
             </div>
 
             {children}

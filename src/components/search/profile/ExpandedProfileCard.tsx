@@ -29,7 +29,7 @@ export default function ExpandedProfileCard({
                 </div>
             </div>
 
-            <div className="flex-column relative py-4">
+            <div className="flex-column relative my-2">
                 <div className="flex flex-row items-center justify-between">
                     <h1 className="card-title h-8">{props.title}</h1>
                     <div>

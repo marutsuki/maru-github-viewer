@@ -36,7 +36,7 @@ export default function RepositorySection({ user }: { user: string }) {
     }
 
     return (
-        <section className="my-4">
+        <section>
             <h1 className="mx-8 text-2xl text-white sm:mx-0 py-2">
                 Public Repositories
             </h1>
