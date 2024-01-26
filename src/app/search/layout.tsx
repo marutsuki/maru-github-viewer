@@ -8,8 +8,8 @@ import { Exo_2 } from "next/font/google";
 const exo = Exo_2({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Maru GitHub Viewer",
-    description: "View GitHub accounts with an aesthetic theme!",
+  title: "Maru GitHub Viewer",
+  description: "View GitHub accounts with an aesthetic theme!",
 };
 
 export default function RootLayout({
