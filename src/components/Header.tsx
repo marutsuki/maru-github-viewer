@@ -1,4 +1,4 @@
-import GitHubSearch from "./search/GitHubSearch";
+import GitHubSearch from "@/components/search/GitHubSearch";
 
 export default function Header() {
     return (

@@ -1,5 +1,5 @@
+import ThemedWrapper from "@/components/common/ThemedWrapper";
 import Image from "next/image";
-import ThemedWrapper from "../common/ThemedWrapper";
 
 interface ExpandedProfileCardProps {
     onClick?: () => void;

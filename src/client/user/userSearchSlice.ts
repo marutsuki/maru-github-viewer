@@ -1,5 +1,5 @@
+import { RootState } from "@/client/store";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../store";
 
 type UserSearchState = {
     activeFilter: string;

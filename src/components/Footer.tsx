@@ -1,6 +1,6 @@
 "use client";
 
-import { GitHubLogo, LinkedIn } from "./common/symbols";
+import { GitHubLogo, LinkedIn } from "@/components/common/symbols";
 
 export default function Footer() {
     const openInNewTab = (url: string) => {

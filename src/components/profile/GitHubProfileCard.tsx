@@ -1,9 +1,9 @@
-import User, { parseUser } from "@/model/User";
+import ExpandedProfileCard from "@/components/profile/ExpandedProfileCard";
 import { Company, Twitter } from "@/components/common/symbols";
-import { getGithubApiEndpoint, getTwitterUrl } from "@/util/environment";
-import ExpandedProfileCard from "./ExpandedProfileCard";
-import { Fetcher } from "swr";
+import User, { parseUser } from "@/model/User";
 import { getUrlFetcher } from "@/util/client";
+import { getGithubApiEndpoint, getTwitterUrl } from "@/util/environment";
+import { Fetcher } from "swr";
 import useSWRImmutable from "swr/immutable";
 
 export const fetcher: Fetcher<User, string> = getUrlFetcher((res) =>

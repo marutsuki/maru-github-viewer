@@ -1,6 +1,6 @@
+import { Copy } from "@/components/common/symbols";
 import { copyText } from "@/util/copy";
 import React, { useEffect, useRef, useState } from "react";
-import { Copy } from "./symbols";
 
 export type CloneWindowProps = {
     cloneUrls: Record<CloneMethod, string>;

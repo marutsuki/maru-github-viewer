@@ -1,5 +1,6 @@
-import type { Config } from "tailwindcss";
 import TailwindScrollbarPlugin from "tailwind-scrollbar";
+import type { Config } from "tailwindcss";
+
 const THEMATIC_GRADIENT = "linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% )";
 const config: Config = {
     content: [

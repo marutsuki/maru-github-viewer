@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
 import ProfileCard from "@/components/ProfileCard";
+import { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof ProfileCard> = {
     component: ProfileCard,

@@ -26,6 +26,9 @@
                 "destructuring": "any",
                 "ignoreReadBeforeAssign": false
             }
-        ]
+        ],
+        "no-restricted-imports": ["error", {
+            "patterns": [".*"]
+        }]
     }
 }

@@ -1,13 +1,13 @@
 "use client";
 
+import ProfileCard from "@/components/ProfileCard";
+import Search from "@/components/search/Search";
 import MinimalUser, { parseMinimalUser } from "@/model/MinimalUser";
-import Search from "./Search";
-import ProfileCard from "../ProfileCard";
 import { getUrlFetcher } from "@/util/client";
-import useSWRImmutable from "swr/immutable";
 import { getGithubApiEndpoint } from "@/util/environment";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import useSWRImmutable from "swr/immutable";
 
 const MINIMUM_SEARCH_LENGTH = 3;
 

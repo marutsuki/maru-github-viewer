@@ -1,9 +1,9 @@
+import RepositoryCard from "@/components/profile/RepositoryCard";
 import Repository, { parseRepository } from "@/model/Repository";
-import { useMemo } from "react";
-import RepositoryCard from "./RepositoryCard";
-import { Fetcher } from "swr";
-import { getGithubApiEndpoint } from "@/util/environment";
 import { getUrlFetcher } from "@/util/client";
+import { getGithubApiEndpoint } from "@/util/environment";
+import { useMemo } from "react";
+import { Fetcher } from "swr";
 import useSWRImmutable from "swr/immutable";
 
 export const fetcher: Fetcher<Repository[], string> = getUrlFetcher((res) =>

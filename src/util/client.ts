@@ -1,5 +1,5 @@
+import { getGithubApiRequestDefaultHeaders } from "@/util/environment";
 import { Fetcher } from "swr";
-import { getGithubApiRequestDefaultHeaders } from "./environment";
 
 export function getUrlFetcher<T>(
     resFunc: (res: Response) => Promise<T>,

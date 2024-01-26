@@ -1,9 +1,9 @@
-import { useState } from "react";
-import AnimationWrapper from "../common/AnimationWrapper";
-import ThemedWrapper from "../common/ThemedWrapper";
-import { Git } from "../common/symbols";
-import CloneWindow from "../common/CloneWindow";
+import AnimationWrapper from "@/components/common/AnimationWrapper";
+import CloneWindow from "@/components/common//CloneWindow";
+import ThemedWrapper from "@/components/common//ThemedWrapper";
+import { Git } from "@/components/common/symbols";
 import { CloneMethod } from "@/model/Repository";
+import { useState } from "react";
 
 export type RepositoryCardProps = {
     name: string;

@@ -1,5 +1,5 @@
+import userSearchReducer from "@/client/user/userSearchSlice";
 import { configureStore } from "@reduxjs/toolkit";
-import userSearchReducer from "./user/userSearchSlice";
 
 export function createStore() {
     return configureStore({
