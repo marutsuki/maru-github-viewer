@@ -30,7 +30,7 @@ export default function Page() {
 
                 <Image
                     className="mt-4 w-full rounded-md"
-                    src="/preview.png"
+                    src="/static/preview.png"
                     alt="preview"
                     width={1858}
                     height={785}

@@ -1,4 +1,4 @@
-import ThemedWrapper from "../common/ThemedWrapper";
+import ThemedWrapper from "@/components/common/ThemedWrapper";
 import Image from "next/image";
 
 interface ProfileCardProps {

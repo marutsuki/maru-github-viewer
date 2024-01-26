@@ -1,6 +1,7 @@
 export type ThemedWrapperProps = {
     children?: React.ReactNode;
     className?: string;
+    onClick?: () => void;
 } & JSX.IntrinsicAttributes;
 
 export default function ThemedWrapper({

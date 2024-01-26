@@ -11,7 +11,7 @@ const nextConfig = {
             },
         ],
     },
-    basePath: "",
+    basePath: "/static",
 
     images: {
         unoptimized: true,
