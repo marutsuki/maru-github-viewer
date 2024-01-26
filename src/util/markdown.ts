@@ -1,4 +1,5 @@
 import { Parser, HtmlRenderer } from "commonmark";
+import xss from "xss";
 
 const markdownParser = new Parser({ smart: true });
 const markdownRenderer = new HtmlRenderer({
@@ -6,8 +7,8 @@ const markdownRenderer = new HtmlRenderer({
     softbreak: " ",
     safe: false,
 });
-
+  
 export function rawMarkdownToHtml(md: string): string {
     const parsed = markdownParser.parse(md);
-    return markdownRenderer.render(parsed);
+    return xss(markdownRenderer.render(parsed));
 }
