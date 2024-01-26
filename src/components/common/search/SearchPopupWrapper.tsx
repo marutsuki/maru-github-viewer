@@ -11,7 +11,7 @@ export const SearchPopupWrapper: React.FC<SearchPopupWrapperProps> = ({
 }) => {
     return (
         <section
-            className={`mockup-browser border border-base-300 bg-black/75 shadow-lg backdrop-blur-md ${className}`}
+            className={`p-12 mockup-browser border border-base-300 bg-black/75 shadow-lg backdrop-blur-md ${className}`}
         >
             {children}
         </section>
