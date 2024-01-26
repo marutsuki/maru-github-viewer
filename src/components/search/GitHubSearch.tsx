@@ -1,7 +1,7 @@
 "use client";
 
-import ProfileCard from "@/components/search/ProfileCard";
 import Search from "@/components/common/search/Search";
+import ProfileCard from "@/components/search/ProfileCard";
 import MinimalUser, { parseMinimalUser } from "@/model/MinimalUser";
 import { getUrlFetcher } from "@/util/client";
 import { getGithubApiEndpoint } from "@/util/environment";

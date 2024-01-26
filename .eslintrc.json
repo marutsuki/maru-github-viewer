@@ -27,8 +27,11 @@
                 "ignoreReadBeforeAssign": false
             }
         ],
-        "no-restricted-imports": ["error", {
-            "patterns": [".*"]
-        }]
+        "no-restricted-imports": [
+            "error",
+            {
+                "patterns": [".*"]
+            }
+        ]
     }
 }
