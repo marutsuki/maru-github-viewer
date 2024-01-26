@@ -1,4 +1,4 @@
-import ProfileCard from "@/components/ProfileCard";
+import ProfileCard from "@/components/search/ProfileCard";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof ProfileCard> = {
