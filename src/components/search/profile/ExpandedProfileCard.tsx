@@ -16,7 +16,7 @@ export default function ExpandedProfileCard({
     ...props
 }: ExpandedProfileCardProps) {
     return (
-        <ThemedWrapper>
+        <ThemedWrapper className="sm:!w-full">
             <div className="avatar opacity-40 duration-200 group-hover:opacity-100 ">
                 <div className="mask mask-squircle w-24">
                     <Image

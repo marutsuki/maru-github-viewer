@@ -22,7 +22,3 @@ export const SearchResults = <T,>({
         </div>
     );
 };
-
-export const SearchResultsLoading: React.FC<object> = () => {
-    return <span className="loading loading-ring loading-lg"></span>;
-};

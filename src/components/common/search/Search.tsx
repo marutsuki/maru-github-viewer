@@ -1,10 +1,8 @@
 import AnimationWrapper from "@/components/common/AnimationWrapper";
+import LoadingIndicator from "@/components/common/LoadingIndicator";
 import { SearchBar } from "@/components/common/search/SearchBar";
 import { SearchPopupWrapper } from "@/components/common/search/SearchPopupWrapper";
-import {
-    SearchResults,
-    SearchResultsLoading,
-} from "@/components/common/search/SearchResults";
+import { SearchResults } from "@/components/common/search/SearchResults";
 import { assertIsNode } from "@/util/type-utils";
 import { useEffect, useRef, useState } from "react";
 
@@ -79,7 +77,7 @@ export default function Search<T>({
                             {isError ? (
                                 <h1>An unexpected error occurred!</h1>
                             ) : data === null ? (
-                                <SearchResultsLoading />
+                                <LoadingIndicator />
                             ) : (
                                 <SearchResults
                                     items={data}
