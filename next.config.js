@@ -11,7 +11,7 @@ const nextConfig = {
             },
         ],
     },
-    basePath: "/static",
+    basePath: "/maru-github-viewer",
 
     images: {
         unoptimized: true,

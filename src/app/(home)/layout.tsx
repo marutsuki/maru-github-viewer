@@ -8,7 +8,6 @@ const exo = Exo_2({ subsets: ["latin"] });
 export const metadata: Metadata = {
     title: "Maru GitHub Viewer",
     description: "View GitHub accounts with an aesthetic theme!",
-    icons: "/favicon.ico",
 };
 
 export default function RootLayout({
