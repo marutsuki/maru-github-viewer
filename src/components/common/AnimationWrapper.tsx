@@ -8,7 +8,13 @@ type AnimationWrapperProps = {
     options?: object;
 };
 
-const AnimationWrapper: React.FC<AnimationWrapperProps> = ({ show, children, onShowAnimation, onHideAnimation, options = { duration: 100, fill: "forwards" } }) => {
+const AnimationWrapper: React.FC<AnimationWrapperProps> = ({
+    show,
+    children,
+    onShowAnimation,
+    onHideAnimation,
+    options = { duration: 100, fill: "forwards" },
+}) => {
     const childRef = useRef<HTMLSpanElement>(null);
     const [hidden, setHidden] = useState(!show);
     useEffect(() => {
@@ -31,9 +37,11 @@ const AnimationWrapper: React.FC<AnimationWrapperProps> = ({ show, children, onS
             }
         }
     }, [show]);
-    return <span className="absolute" ref={childRef}>
-        { !hidden &&  children }
-    </span>;
+    return (
+        <span className="absolute" ref={childRef}>
+            {!hidden && children}
+        </span>
+    );
 };
 
 export default AnimationWrapper;

@@ -15,10 +15,22 @@ export default function Page() {
         throw new Error("User not found :(");
     }
 
-    return <main className="p-12 h-full overflow-hidden grid grid-areas-profile-layout grid-cols-profile-layout grid-rows-profile-layout [&>*]:m-2">
-        <section className="grid-in-left">
-            <GitHubProfileCard user={ user } /></section>
-        <section className="relative grid-in-right"> <ReadMe readmeUrl={getGithubRawEndpoint().concat(`/${user}/${user}/main/README.md`)}/></section>
-        <section className="grid-in-bottom"><RepositorySection user={ user }/></section>
-    </main>;
+    return (
+        <main className="grid h-full grid-cols-profile-layout grid-rows-profile-layout overflow-hidden p-12 grid-areas-profile-layout [&>*]:m-2">
+            <section className="grid-in-left">
+                <GitHubProfileCard user={user} />
+            </section>
+            <section className="relative grid-in-right">
+                {" "}
+                <ReadMe
+                    readmeUrl={getGithubRawEndpoint().concat(
+                        `/${user}/${user}/main/README.md`,
+                    )}
+                />
+            </section>
+            <section className="grid-in-bottom">
+                <RepositorySection user={user} />
+            </section>
+        </main>
+    );
 }

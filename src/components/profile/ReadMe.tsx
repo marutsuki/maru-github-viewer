@@ -6,7 +6,10 @@ import { useMemo } from "react";
 import { Fetcher } from "swr";
 import useSWRImmutable from "swr/immutable";
 
-export const fetcher: Fetcher<string, string> = getUrlFetcher(res => res.text(), false);
+export const fetcher: Fetcher<string, string> = getUrlFetcher(
+    (res) => res.text(),
+    false,
+);
 
 export default function ReadMe({ readmeUrl }: { readmeUrl: string }) {
     const { data, error } = useSWRImmutable(readmeUrl, fetcher);
@@ -20,38 +23,40 @@ export default function ReadMe({ readmeUrl }: { readmeUrl: string }) {
         } else {
             html = data;
         }
-        return (
-            {
-                dangerouslySetInnerHTML: {
-                    __html: rawMarkdownToHtml(html)
-                }
-            }
-        );
+        return {
+            dangerouslySetInnerHTML: {
+                __html: rawMarkdownToHtml(html),
+            },
+        };
     }, [data, error]);
 
     if (data === undefined && error === undefined) {
-        return <section>
-            <span className="loading loading-ring loading-lg"></span>
-        </section>;
+        return (
+            <section>
+                <span className="loading loading-ring loading-lg"></span>
+            </section>
+        );
     }
 
-    return <div className="relative h-full bg-thematic-gradient rounded-md opacity-70
-        hover:opacity-100 transition duration-100
-        after:content-[''] after:absolute after:bg-thematic-gradient after:blur-lg after:-inset-0 after:right-0 after:z-[-2]">
-        <section
-            className="absolute p-6 block break-words text-white bg-black bg-opacity-70 inset-1 rounded-lg
-            scrollbar-thin
-            scrollbar-thumb-theme-faded scrollbar-thumb-rounded-[5px]
-            hover:scrollbar-thumb-theme-primary active:scrollbar-thumb-theme-active
-            [&_img]:inline-block [&_img]:m-2 overflow-y-auto
-            [&_h2]:text-2xl
-            [&_h2]:py-2
-            [&_h3]:text-xl
-            [&_h3]:py-2
-            [&_p]:text-sm"
-            { ...(setHtmlProps !== null && setHtmlProps)}
+    return (
+        <div
+            className="relative h-full rounded-md bg-thematic-gradient opacity-70
+        transition duration-100 after:absolute
+        after:-inset-0 after:right-0 after:z-[-2] after:bg-thematic-gradient after:blur-lg after:content-[''] hover:opacity-100"
         >
-        </section>
-
-    </div>;
+            <section
+                className="absolute inset-1 block overflow-y-auto break-words rounded-lg bg-black bg-opacity-70 p-6
+            text-white
+            scrollbar-thin scrollbar-thumb-theme-faded
+            scrollbar-thumb-rounded-[5px] hover:scrollbar-thumb-theme-primary
+            active:scrollbar-thumb-theme-active [&_h2]:py-2 [&_h2]:text-2xl
+            [&_h3]:py-2
+            [&_h3]:text-xl
+            [&_img]:m-2
+            [&_img]:inline-block
+            [&_p]:text-sm"
+                {...(setHtmlProps !== null && setHtmlProps)}
+            ></section>
+        </div>
+    );
 }

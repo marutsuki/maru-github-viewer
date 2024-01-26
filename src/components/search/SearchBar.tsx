@@ -9,24 +9,39 @@ type SearchBarProps = {
     children?: React.ReactNode;
 };
 
-export const SearchBar = forwardRef<HTMLDivElement, SearchBarProps>(({ className = "", children, onInputUpdate = () => {}, onFocus = () => {}}, ref) => {
-    const [input, setInput] = useState("");
+export const SearchBar = forwardRef<HTMLDivElement, SearchBarProps>(
+    (
+        {
+            className = "",
+            children,
+            onInputUpdate = () => {},
+            onFocus = () => {},
+        },
+        ref,
+    ) => {
+        const [input, setInput] = useState("");
 
-    return <div ref={ref} className={`relative w-full p-4 bg-neutral flex justify-center z-[100] ${className}`}>
-        <div className="h-8 w-80 relative">
-            <DoubleDash className="absolute right-full -bottom-4"/>
-            <div className="h-full w-full absolute p-2 bg-thematic-gradient blur-md"></div>
-            <input className="h-full w-full absolute p-2 text-white bg-black bg-opacity-70 rounded-lg border border-white"
-                placeholder="Search a GitHub user..."
-                value={input}
-                onChange={e => {
-                    onInputUpdate(e.target.value);
-                    setInput(e.target.value);
-                }
-                }
-                onFocus={onFocus}/>
-
-        </div>
-        { children }
-    </div>;
-});
+        return (
+            <div
+                ref={ref}
+                className={`relative z-[100] flex w-full justify-center bg-neutral p-4 ${className}`}
+            >
+                <div className="relative h-8 w-80">
+                    <DoubleDash className="absolute -bottom-4 right-full" />
+                    <div className="absolute h-full w-full bg-thematic-gradient p-2 blur-md"></div>
+                    <input
+                        className="absolute h-full w-full rounded-lg border border-white bg-black bg-opacity-70 p-2 text-white"
+                        placeholder="Search a GitHub user..."
+                        value={input}
+                        onChange={(e) => {
+                            onInputUpdate(e.target.value);
+                            setInput(e.target.value);
+                        }}
+                        onFocus={onFocus}
+                    />
+                </div>
+                {children}
+            </div>
+        );
+    },
+);

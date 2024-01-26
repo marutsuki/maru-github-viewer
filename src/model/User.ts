@@ -36,11 +36,15 @@ export function parseUser(json: any): User {
         followers: parseInt(json.followers),
         following: parseInt(json.following),
         reposUrl: json.repos_url,
-        ageInMonths: getAgeInMonths(new Date(Date.parse(json.created_at)))
+        ageInMonths: getAgeInMonths(new Date(Date.parse(json.created_at))),
     };
 }
 
 export function getAgeInMonths(creationDate: Date): number {
     const now = new Date(Date.now());
-    return (now.getFullYear() - creationDate.getFullYear()) * 12 - creationDate.getMonth() + now.getMonth();
+    return (
+        (now.getFullYear() - creationDate.getFullYear()) * 12 -
+        creationDate.getMonth() +
+        now.getMonth()
+    );
 }

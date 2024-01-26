@@ -1,6 +1,8 @@
 import { ParsedUrlQuery } from "querystring";
 
-export function createTypedUrlQueryParams<T>(params: T & Record<string, string>): URLSearchParams {
+export function createTypedUrlQueryParams<T>(
+    params: T & Record<string, string>,
+): URLSearchParams {
     return new URLSearchParams(params);
 }
 

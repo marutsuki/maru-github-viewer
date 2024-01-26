@@ -6,15 +6,21 @@ type SearchResultsProps<T> = {
     resultComponentProvider: (user: T, key: number) => React.ReactNode;
 };
 
-
-export const SearchResults = <T,>({ items, onClick, resultComponentProvider }: SearchResultsProps<T>): React.ReactNode => {
-    return <div className="grid grid-cols-4 place-items-center">
-        {
-            (items === undefined ? [] : items).map((item, key) =>
-                <div onClick={ () => onClick(item) }> { resultComponentProvider(item, key) }</div>
-            )
-        }
-    </div>;
+export const SearchResults = <T,>({
+    items,
+    onClick,
+    resultComponentProvider,
+}: SearchResultsProps<T>): React.ReactNode => {
+    return (
+        <div className="grid grid-cols-4 place-items-center">
+            {(items === undefined ? [] : items).map((item, key) => (
+                <div onClick={() => onClick(item)}>
+                    {" "}
+                    {resultComponentProvider(item, key)}
+                </div>
+            ))}
+        </div>
+    );
 };
 
 export const SearchResultsLoading: React.FC<object> = () => {

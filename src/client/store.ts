@@ -4,8 +4,8 @@ import userSearchReducer from "./user/userSearchSlice";
 export function createStore() {
     return configureStore({
         reducer: {
-            userSearchReducer
-        }
+            userSearchReducer,
+        },
     });
 }
 

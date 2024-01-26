@@ -1,20 +1,19 @@
-
 import { copyText } from "@/util/copy";
 import React, { useEffect, useRef, useState } from "react";
 import { Copy } from "./symbols";
-
-enum CloneMethod {
-    SSH,
-    HTTP
-}
 
 export type CloneWindowProps = {
     cloneUrls: Record<CloneMethod, string>;
     onExit: () => void;
 };
 
-export default function CloneWindow({ cloneUrls, onExit }: CloneWindowProps): React.ReactNode {
-    const [cloneMethod, setCloneMethod] = useState<CloneMethod>(CloneMethod.HTTP);
+export default function CloneWindow({
+    cloneUrls,
+    onExit,
+}: CloneWindowProps): React.ReactNode {
+    const [cloneMethod, setCloneMethod] = useState<CloneMethod>(
+        CloneMethod.HTTP,
+    );
     const cloneUrlRef = useRef<HTMLInputElement>(null);
     const activeCloneWindow = useRef<HTMLDivElement>(null);
     useEffect(() => {
@@ -33,25 +32,57 @@ export default function CloneWindow({ cloneUrls, onExit }: CloneWindowProps): Re
         };
     }, []);
 
-    return <div className="absolute w-60 -right-4 p-4 rounded-md bg-white z-[3] text-gray-700" ref={activeCloneWindow}>
-        <h3>Clone</h3>
-        <hr/>
-        <div>
-            {
-                Object.keys(CloneMethod).filter(method => isNaN(parseInt(method))).map(method =>
-                    <button
-                        className={cloneMethod === CloneMethod[method as keyof typeof CloneMethod] ? "w-12 after:block after:content-[''] after:bg-pink-400 after:px-1 after:w-full after:h-1" : "w-12"}
-                        key={method}
-                        onClick={() => setCloneMethod(CloneMethod[method as keyof typeof CloneMethod])}>
-                        {method}
-                    </button>)
-            }
+    return (
+        <div
+            className="absolute -right-4 z-[3] w-60 rounded-md bg-white p-4 text-gray-700"
+            ref={activeCloneWindow}
+        >
+            <h3>Clone</h3>
+            <hr />
+            <div>
+                {Object.keys(CloneMethod)
+                    .filter((method) => isNaN(parseInt(method)))
+                    .map((method) => (
+                        <button
+                            className={
+                                cloneMethod ===
+                                CloneMethod[method as keyof typeof CloneMethod]
+                                    ? "w-12 after:block after:h-1 after:w-full after:bg-pink-400 after:px-1 after:content-['']"
+                                    : "w-12"
+                            }
+                            key={method}
+                            onClick={() =>
+                                setCloneMethod(
+                                    CloneMethod[
+                                        method as keyof typeof CloneMethod
+                                    ],
+                                )
+                            }
+                        >
+                            {method}
+                        </button>
+                    ))}
+            </div>
+            <div className="flex w-full flex-row justify-between">
+                <input
+                    ref={cloneUrlRef}
+                    className="w-40 rounded-md border"
+                    value={
+                        cloneUrls[cloneMethod] === undefined
+                            ? ""
+                            : cloneUrls[cloneMethod]
+                    }
+                    readOnly={true}
+                />
+                <span
+                    onClick={() =>
+                        cloneUrlRef.current !== null &&
+                        copyText(cloneUrlRef.current.value)
+                    }
+                >
+                    <Copy className="cursor-pointer fill-theme-faded duration-200 active:fill-theme-active" />
+                </span>
+            </div>
         </div>
-        <div className="w-full flex flex-row justify-between">
-            <input ref={cloneUrlRef} className="w-40 border rounded-md" value={cloneUrls[cloneMethod] === undefined ? "" : cloneUrls[cloneMethod]} readOnly={true}/>
-            <span onClick={() => cloneUrlRef.current !== null && copyText(cloneUrlRef.current.value) }>
-                <Copy className="cursor-pointer fill-theme-faded duration-200 active:fill-theme-active"/>
-            </span>
-        </div>
-    </div>;
+    );
 }

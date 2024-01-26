@@ -17,12 +17,12 @@ export function getGithubApiRequestDefaultHeaders(): Record<string, string> {
     try {
         const apiToken = getGithubApiToken();
         return {
-            "Authorization": `Bearer ${apiToken}`,
-            "X-GitHub-Api-Version": "2022-11-28"
+            Authorization: `Bearer ${apiToken}`,
+            "X-GitHub-Api-Version": "2022-11-28",
         };
     } catch (e: unknown) {
         return {
-            "X-GitHub-Api-Version": "2022-11-28"
+            "X-GitHub-Api-Version": "2022-11-28",
         };
     }
 }

@@ -6,7 +6,7 @@ type UserSearchState = {
 };
 
 const initialState: UserSearchState = {
-    activeFilter: ""
+    activeFilter: "",
 };
 
 const userSearchSlice = createSlice({
@@ -14,11 +14,11 @@ const userSearchSlice = createSlice({
     initialState,
     reducers: {
         updateUserSearch(_, action: PayloadAction<string>) {
-            return ({
-                activeFilter: action.payload
-            });
-        }
-    }
+            return {
+                activeFilter: action.payload,
+            };
+        },
+    },
 });
 
 export const { updateUserSearch } = userSearchSlice.actions;

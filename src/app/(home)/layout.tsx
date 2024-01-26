@@ -13,13 +13,15 @@ export const metadata: Metadata = {
 export default function RootLayout({
     children,
 }: {
-    children: React.ReactNode
+    children: React.ReactNode;
 }) {
     return (
         <html lang="en" data-theme="corporate">
-            <body className={exo.className.concat(" grid grid-rows-home-layout")}>
-                { children }
-                <Footer/>
+            <body
+                className={exo.className.concat(" grid grid-rows-home-layout")}
+            >
+                {children}
+                <Footer />
             </body>
         </html>
     );

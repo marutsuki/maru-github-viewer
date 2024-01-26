@@ -12,29 +12,45 @@ export default function Page() {
     };
 
     return (
-        <main className="h-full grid grid-cols-2 place-items-center text-white">
+        <main className="grid h-full grid-cols-2 place-items-center text-white">
             <div className="m-16 flex flex-col items-end">
                 <div>
-                    <h1 className="text-3xl mb-4">Search for any GitHub account</h1>
-                    <p>Be presented with a tailored overview in an aesthetic theme.<br/>Analyze their account information, absorb in their profile README.md, <br/>see their public repos, clone them directly here!</p>
+                    <h1 className="mb-4 text-3xl">
+                        Search for any GitHub account
+                    </h1>
+                    <p>
+                        Be presented with a tailored overview in an aesthetic
+                        theme.
+                        <br />
+                        Analyze their account information, absorb in their
+                        profile README.md, <br />
+                        see their public repos, clone them directly here!
+                    </p>
                 </div>
 
-                <Image className="mt-4 rounded-md w-full" src="/preview.png" alt="preview" width={1858} height={785}/>
+                <Image
+                    className="mt-4 w-full rounded-md"
+                    src="/preview.png"
+                    alt="preview"
+                    width={1858}
+                    height={785}
+                />
             </div>
             <div className="flex flex-col items-center">
                 <button
-                    className="group relative p-1 text-4xl rounded-lg overflow-hidden hover:text-theme-accent duration-200"
+                    className="group relative overflow-hidden rounded-lg p-1 text-4xl duration-200 hover:text-theme-accent"
                     onClick={redirectToSearchPage}
                 >
-                    <h1 className="bg-black/75 rounded-lg p-4 duration-200
-                        active:bg-theme-active/75 active:text-white
-                        before:content-[''] before:absolute before:w-screen before:h-screen before:-translate-x-1/2 before:-translate-y-1/2 before:z-[-1] before:bg-thematic-gradient before:rounded-lg before:duration-200
-                        group-hover:before:rotate-180"
+                    <h1
+                        className="rounded-lg bg-black/75 p-4 duration-200
+                        before:absolute before:z-[-1]
+                        before:h-screen before:w-screen before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-lg before:bg-thematic-gradient before:duration-200 before:content-[''] group-hover:before:rotate-180 active:bg-theme-active/75
+                        active:text-white"
                     >
                         Dive into the application!
                     </h1>
                 </button>
-                <UpArrow className="m-4 fill-white animate-bounce w-8 h-8"/>
+                <UpArrow className="m-4 h-8 w-8 animate-bounce fill-white" />
             </div>
         </main>
     );

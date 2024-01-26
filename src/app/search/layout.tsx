@@ -15,15 +15,19 @@ export const metadata: Metadata = {
 export default function RootLayout({
     children,
 }: {
-    children: React.ReactNode
+    children: React.ReactNode;
 }) {
     return (
         <html lang="en" data-theme="corporate">
-            <body className={exo.className.concat(" grid grid-rows-main-layout animate-fadein")}>
+            <body
+                className={exo.className.concat(
+                    " grid animate-fadein grid-rows-main-layout",
+                )}
+            >
                 <StoreProvider>
-                    <Header/>
-                    { children }
-                    <Footer/>
+                    <Header />
+                    {children}
+                    <Footer />
                 </StoreProvider>
             </body>
         </html>

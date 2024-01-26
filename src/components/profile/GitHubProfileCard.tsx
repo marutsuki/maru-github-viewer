@@ -6,14 +6,19 @@ import { Fetcher } from "swr";
 import { getUrlFetcher } from "@/util/client";
 import useSWRImmutable from "swr/immutable";
 
-export const fetcher: Fetcher<User, string> = getUrlFetcher(res => res.json().then(data => parseUser(data)));
+export const fetcher: Fetcher<User, string> = getUrlFetcher((res) =>
+    res.json().then((data) => parseUser(data)),
+);
 
 export type GitHubProfileCarddata = {
     user: string;
 };
 
 export default function GitHubProfileCard({ user }: GitHubProfileCarddata) {
-    const { data, error } = useSWRImmutable(getGithubApiEndpoint().concat(`/users/${user}`), fetcher);
+    const { data, error } = useSWRImmutable(
+        getGithubApiEndpoint().concat(`/users/${user}`),
+        fetcher,
+    );
 
     if (error !== undefined) {
         return <></>;
@@ -31,24 +36,45 @@ export default function GitHubProfileCard({ user }: GitHubProfileCarddata) {
         window.open(getTwitterUrl().concat(`/${data.twitter}`), "_blank");
     };
 
-    return <ExpandedProfileCard
-        title={data.username}
-        subtitle={data.name === null ? "" : data.name}
-        description={data.bio}
-        imageUrl={data.avatarUrl}
-        titleAside={<>
-            { data.twitter !== undefined && <span onClick={openTwitterInNewTab}>
-                <Twitter className="cursor-pointer fill-white hover:fill-twitter active:fill-theme-active transition duration-200"/>
-            </span>}
-        </>}
-    >
-        { data.company !== null && <p><Company className="mr-2 fill-text-active inline-block"/> <span>{ data.company }</span> </p>}
-        { data.location !== null && <p>{ data.location }</p>}
-        <hr className="my-2"/>
-        <p>Followers: {String(data.followers)}</p>
-        <p>Following: {String(data.following)}</p>
-        <p>Account Age: {data.ageInMonths % 12 === 0 ? `${Math.floor(data.ageInMonths / 12)} Years` : `${Math.floor(data.ageInMonths / 12)} Years and ${data.ageInMonths % 12} Months`}</p>
-        <button className="m-2 border rounded-md duration-100
-        active:bg-theme-active active:text-black" onClick={openGitHubInNewTab}>To GitHub</button>
-    </ExpandedProfileCard>;
+    return (
+        <ExpandedProfileCard
+            title={data.username}
+            subtitle={data.name === null ? "" : data.name}
+            description={data.bio}
+            imageUrl={data.avatarUrl}
+            titleAside={
+                <>
+                    {data.twitter !== undefined && (
+                        <span onClick={openTwitterInNewTab}>
+                            <Twitter className="cursor-pointer fill-white transition duration-200 hover:fill-twitter active:fill-theme-active" />
+                        </span>
+                    )}
+                </>
+            }
+        >
+            {data.company !== null && (
+                <p>
+                    <Company className="mr-2 inline-block fill-text-active" />{" "}
+                    <span>{data.company}</span>{" "}
+                </p>
+            )}
+            {data.location !== null && <p>{data.location}</p>}
+            <hr className="my-2" />
+            <p>Followers: {String(data.followers)}</p>
+            <p>Following: {String(data.following)}</p>
+            <p>
+                Account Age:{" "}
+                {data.ageInMonths % 12 === 0
+                    ? `${Math.floor(data.ageInMonths / 12)} Years`
+                    : `${Math.floor(data.ageInMonths / 12)} Years and ${data.ageInMonths % 12} Months`}
+            </p>
+            <button
+                className="m-2 rounded-md border duration-100
+        active:bg-theme-active active:text-black"
+                onClick={openGitHubInNewTab}
+            >
+                To GitHub
+            </button>
+        </ExpandedProfileCard>
+    );
 }

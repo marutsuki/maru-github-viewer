@@ -3,13 +3,21 @@ export type ThemedWrapperProps = {
     className?: string;
 } & JSX.IntrinsicAttributes;
 
-export default function ThemedWrapper({ children, className, ...props }: ThemedWrapperProps) {
-    return <div className={`group relative card w-96 max-w-full rounded-lg p-4 flex-column box-border bg-card-overlay text-text-faded
-        before:absolute before:-inset-1 before:content-[''] before:absolute before:rounded-md before:bg-thematic-gradient before:z-[-1]
-        after:content-[''] after:absolute after:bg-thematic-gradient after:blur-lg after-inset-0 after:z-[-2]
-        hover:text-text-active
-        duration-100 ease-out ${className === undefined ? "" : className}`}
-    { ...props }>
-        { children }
-    </div>;
+export default function ThemedWrapper({
+    children,
+    className,
+    ...props
+}: ThemedWrapperProps) {
+    return (
+        <div
+            className={`flex-column after-inset-0 group card relative box-border w-96 max-w-full rounded-lg bg-card-overlay p-4
+        text-text-faded duration-100 ease-out before:absolute before:absolute before:-inset-1 before:z-[-1]
+        before:rounded-md before:bg-thematic-gradient before:content-[''] after:absolute after:z-[-2] after:bg-thematic-gradient
+        after:blur-lg
+        after:content-[''] hover:text-text-active ${className === undefined ? "" : className}`}
+            {...props}
+        >
+            {children}
+        </div>
+    );
 }
