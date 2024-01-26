@@ -15,7 +15,7 @@ export default function Footer() {
                     By marutsuki
                 </p>
             </aside>
-            <nav>
+            <nav className="sm:hidden">
                 <header className="footer-title">Social</header>
                 <div className="grid grid-flow-col gap-4">
                     <span

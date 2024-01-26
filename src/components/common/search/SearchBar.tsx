@@ -26,7 +26,7 @@ export const SearchBar = forwardRef<HTMLDivElement, SearchBarProps>(
                 ref={ref}
                 className={`relative z-[100] flex w-full justify-center bg-neutral p-4 ${className}`}
             >
-                <div className="relative h-8 w-80">
+                <div className="relative h-8 w-80 sm:w-60">
                     <DoubleDash className="absolute -bottom-4 right-full" />
                     <div className="absolute h-full w-full bg-thematic-gradient p-2 blur-md"></div>
                     <input

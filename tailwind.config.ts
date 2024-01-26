@@ -61,6 +61,11 @@ const config: Config = {
                 "thematic-gradient": THEMATIC_GRADIENT,
             },
         },
+        screens: {
+            'lg': {'max': '1280px'},
+            'md': {'max': '1024px'},
+            'sm': {'max': '768px'},
+          }
     },
     plugins: [
         require("daisyui"),

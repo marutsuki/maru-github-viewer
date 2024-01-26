@@ -16,8 +16,8 @@ export default function Page() {
     }
 
     return (
-        <main className="grid h-full grid-cols-profile-layout grid-rows-profile-layout overflow-hidden p-12 grid-areas-profile-layout [&>*]:m-2">
-            <section className="grid-in-left">
+        <main className="grid h-full grid-cols-profile-layout grid-rows-profile-layout overflow-hidden md:overflow-y-auto sm:flex sm:flex-col p-12 sm:p-4 grid-areas-profile-layout [&>*]:m-2 sm:[&>*]:my-10">
+            <section className="grid-in-left grid place-items-center">
                 <GitHubProfileCard user={user} />
             </section>
             <section className="relative grid-in-right">

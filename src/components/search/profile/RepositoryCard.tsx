@@ -25,8 +25,8 @@ export default function RepositoryCard({
         window.open(htmlUrl, "_blank");
     };
     return (
-        <ThemedWrapper className="mx-8 my-4" {...props}>
-            <div className="relative w-72">
+        <ThemedWrapper className="mx-8 my-4 sm:w-60" {...props}>
+            <div className="relative w-72 sm:w-auto">
                 <div className="flex flex-row justify-between">
                     <h2 className="text-xl"> {name} </h2>
 

@@ -39,8 +39,10 @@ export default function ReadMe({ readmeUrl }: { readmeUrl: string }) {
     }
 
     return (
+        <>
+        <h2 className="text-2xl text-white hidden sm:block my-2">README.md</h2>
         <div
-            className="relative h-full rounded-md bg-thematic-gradient opacity-70
+            className="relative h-full sm:min-h-72 rounded-md bg-thematic-gradient opacity-70
         transition duration-100 after:absolute
         after:-inset-0 after:right-0 after:z-[-2] after:bg-thematic-gradient after:blur-lg after:content-[''] hover:opacity-100"
         >
@@ -58,5 +60,6 @@ export default function ReadMe({ readmeUrl }: { readmeUrl: string }) {
                 {...(setHtmlProps !== null && setHtmlProps)}
             ></section>
         </div>
+        </>
     );
 }

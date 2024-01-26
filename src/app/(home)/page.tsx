@@ -12,7 +12,7 @@ export default function Page() {
     };
 
     return (
-        <main className="grid h-full grid-cols-2 place-items-center text-white">
+        <main className="grid h-full grid-cols-2 place-items-center text-white sm:flex sm:flex-col">
             <div className="m-16 flex flex-col items-end">
                 <div>
                     <h1 className="mb-4 text-3xl">
@@ -36,7 +36,7 @@ export default function Page() {
                     height={785}
                 />
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center sm:m-4">
                 <button
                     className="group relative overflow-hidden rounded-lg p-1 text-4xl duration-200 hover:text-theme-accent"
                     onClick={redirectToSearchPage}
@@ -44,13 +44,13 @@ export default function Page() {
                     <h1
                         className="rounded-lg bg-black/75 p-4 duration-200
                         before:absolute before:z-[-1]
-                        before:h-screen before:w-screen before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-lg before:bg-thematic-gradient before:duration-200 before:content-[''] group-hover:before:rotate-180 active:bg-theme-active/75
+                        before:h-[2000px] before:w-[2000px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-lg before:bg-thematic-gradient before:duration-200 before:content-[''] group-hover:before:rotate-180 active:bg-theme-active/75
                         active:text-white"
                     >
                         Dive into the application!
                     </h1>
                 </button>
-                <UpArrow className="m-4 h-8 w-8 animate-bounce fill-white" />
+                <UpArrow className="sm:hidden m-4 h-8 w-8 animate-bounce fill-white" />
             </div>
         </main>
     );

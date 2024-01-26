@@ -35,18 +35,21 @@ export default function RepositorySection({ user }: { user: string }) {
 
     return (
         <section className="my-4">
-            <h1 className="mx-8 text-2xl text-white">Public Repositories</h1>
+            <h1 className="mx-8 text-2xl text-white sm:mx-0 py-2">Public Repositories</h1>
             <div
                 className="relative
         before:pointer-events-none before:absolute before:left-0 before:top-0 before:z-[1] before:h-full
         before:w-20 before:rounded-xl before:bg-gradient-to-r before:from-theme-primary before:to-transparent before:opacity-40
         before:blur-sm before:content-['']
+        sm:before:hidden
         after:pointer-events-none after:absolute after:right-0 after:top-0 after:h-full after:w-20
         after:rounded-xl after:bg-gradient-to-l after:from-theme-primary after:to-transparent after:opacity-40
-        after:blur-sm after:content-['']"
+        after:blur-sm after:content-['']
+        sm:after:hidden"
             >
                 <div
-                    className="flex flex-row overflow-x-auto rounded-xl
+                    className="flex flex-row sm:flex-col overflow-x-auto rounded-xl
+                    sm:overflow-x-hidden sm:overflow-y-auto sm:h-[50vh]
             border-theme-primary pb-4 shadow-inner
             scrollbar-thin
             scrollbar-thumb-theme-faded scrollbar-thumb-rounded-[5px]
