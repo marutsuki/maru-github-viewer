@@ -1,4 +1,5 @@
 import { Copy } from "@/components/common/symbols";
+import { CloneMethod } from "@/model/Repository";
 import { copyText } from "@/util/copy";
 import React, { useEffect, useRef, useState } from "react";
 
