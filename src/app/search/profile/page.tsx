@@ -1,8 +1,8 @@
 "use client";
 
-import GitHubProfileCard from "@/components/profile/GitHubProfileCard";
-import ReadMe from "@/components/profile/ReadMe";
-import RepositorySection from "@/components/profile/RepositorySection";
+import GitHubProfileCard from "@/components/search/profile/GitHubProfileCard";
+import ReadMe from "@/components/search/profile/ReadMe";
+import RepositorySection from "@/components/search/profile/RepositorySection";
 import { getGithubRawEndpoint } from "@/util/environment";
 import { useSearchParams } from "next/navigation";
 

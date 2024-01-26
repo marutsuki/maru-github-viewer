@@ -1,7 +1,7 @@
 import AnimationWrapper from "@/components/common/AnimationWrapper";
-import { SearchBar } from "@/components/search/SearchBar";
-import { SearchPopupWrapper } from "@/components/search/SearchPopupWrapper";
-import { SearchResults, SearchResultsLoading } from "@/components/search/SearchResults";
+import { SearchBar } from "@/components/common/search/SearchBar";
+import { SearchPopupWrapper } from "@/components/common/search/SearchPopupWrapper";
+import { SearchResults, SearchResultsLoading } from "@/components/common/search/SearchResults";
 import { assertIsNode } from "@/util/type-utils";
 import { useEffect, useRef, useState } from "react";
 

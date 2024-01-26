@@ -1,4 +1,4 @@
-import ExpandedProfileCard from "@/components/profile/ExpandedProfileCard";
+import ExpandedProfileCard from "@/components/search/profile/ExpandedProfileCard";
 import { Company, Twitter } from "@/components/common/symbols";
 import User, { parseUser } from "@/model/User";
 import { getUrlFetcher } from "@/util/client";

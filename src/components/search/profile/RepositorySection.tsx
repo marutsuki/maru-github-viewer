@@ -1,4 +1,4 @@
-import RepositoryCard from "@/components/profile/RepositoryCard";
+import RepositoryCard from "@/components/search/profile/RepositoryCard";
 import Repository, { parseRepository } from "@/model/Repository";
 import { getUrlFetcher } from "@/util/client";
 import { getGithubApiEndpoint } from "@/util/environment";
