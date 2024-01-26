@@ -1,5 +1,7 @@
 "use client";
 
+import LoadingIndicator from "@/components/common/LoadingIndicator";
+import LoadingScreen from "@/components/common/LoadingScreen";
 import { getUrlFetcher } from "@/util/client";
 import { rawMarkdownToHtml } from "@/util/markdown";
 import { useMemo } from "react";
@@ -32,9 +34,7 @@ export default function ReadMe({ readmeUrl }: { readmeUrl: string }) {
 
     if (data === undefined && error === undefined) {
         return (
-            <section>
-                <span className="loading loading-ring loading-lg"></span>
-            </section>
+            <LoadingScreen/>
         );
     }
 

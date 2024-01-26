@@ -1,3 +1,4 @@
+import LoadingScreen from "@/components/common/LoadingScreen";
 import { Company, Twitter } from "@/components/common/symbols";
 import ExpandedProfileCard from "@/components/search/profile/ExpandedProfileCard";
 import User, { parseUser } from "@/model/User";
@@ -21,11 +22,11 @@ export default function GitHubProfileCard({ user }: GitHubProfileCarddata) {
     );
 
     if (error !== undefined) {
-        return <></>;
+        throw new Error("Failed to retrieve GitHub user data");
     }
 
     if (data === undefined) {
-        return <></>;
+        return <LoadingScreen/>;
     }
 
     const openGitHubInNewTab = () => {

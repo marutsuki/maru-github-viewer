@@ -1,3 +1,4 @@
+import LoadingScreen from "@/components/common/LoadingScreen";
 import RepositoryCard from "@/components/search/profile/RepositoryCard";
 import Repository, { parseRepository } from "@/model/Repository";
 import { getUrlFetcher } from "@/util/client";
@@ -27,10 +28,11 @@ export default function RepositorySection({ user }: { user: string }) {
     );
 
     if (error !== undefined) {
-        return <>Error</>;
+        throw new Error("Failed to load user repository data")
     }
+
     if (sorted === null) {
-        return <></>;
+        return <LoadingScreen/>
     }
 
     return (

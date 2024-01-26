@@ -12,7 +12,7 @@ export default function Page() {
     const user = params.get("user");
 
     if (user === null) {
-        throw new Error("User not found :(");
+        throw new Error("User param not found");
     }
 
     return (

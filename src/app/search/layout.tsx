@@ -21,7 +21,7 @@ export default function RootLayout({
         <html lang="en" data-theme="corporate">
             <body
                 className={exo.className.concat(
-                    " grid animate-fadein grid-rows-main-layout",
+                    " grid grid-rows-main-layout",
                 )}
             >
                 <StoreProvider>
