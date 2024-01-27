@@ -14,7 +14,7 @@ export default meta;
 
 export const Primary: StoryObj = {
     args: {
-        title: "Name Name",
+        title: "Name Name Name",
         description: "",
         imageUrl: "/identicon.png",
     },

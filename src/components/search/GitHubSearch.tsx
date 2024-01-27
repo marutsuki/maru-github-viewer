@@ -67,11 +67,6 @@ export default function GitHubSearch() {
                     key={"user:" + key}
                     title={user.username}
                     imageUrl={user.avatarUrl}
-                    description={
-                        user.bio === null
-                            ? "This user has not written a bio :("
-                            : user.bio
-                    }
                 />
             )}
         />
