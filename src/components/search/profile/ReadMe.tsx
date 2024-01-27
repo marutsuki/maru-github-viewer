@@ -32,9 +32,7 @@ export default function ReadMe({ readmeUrl }: { readmeUrl: string }) {
     }, [data, error]);
 
     if (data === undefined && error === undefined) {
-        return (
-            <LoadingScreen/>
-        );
+        return <LoadingScreen />;
     }
 
     return (

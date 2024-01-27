@@ -28,11 +28,11 @@ export default function RepositorySection({ user }: { user: string }) {
     );
 
     if (error !== undefined) {
-        throw new Error("Failed to load user repository data")
+        throw new Error("Failed to load user repository data");
     }
 
     if (sorted === null) {
-        return <LoadingScreen/>
+        return <LoadingScreen />;
     }
 
     return (

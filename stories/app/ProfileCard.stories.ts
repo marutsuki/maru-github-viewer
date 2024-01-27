@@ -1,8 +1,8 @@
-import ProfileCard from "@/components/search/ProfileCard";
+import GitHubSearchResult from "@/components/search/GitHubSearchResult";
 import { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof ProfileCard> = {
-    component: ProfileCard,
+const meta: Meta<typeof GitHubSearchResult> = {
+    component: GitHubSearchResult,
     title: "ProfileCard",
     parameters: {
         backgrounds: {

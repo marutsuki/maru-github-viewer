@@ -26,9 +26,19 @@ export default function RepositoryCard({
     };
     return (
         <ThemedWrapper className="mx-8 my-4 sm:w-60" {...props}>
-            <div className="relative w-72 sm:w-auto">
+            <div className="relative w-72 h-full sm:w-auto flex flex-col justify-between">
                 <div className="flex flex-row justify-between">
-                    <h2 className="text-xl"> {name} </h2>
+                    <div>
+                        <h2 className="text-xl mb-2"> {name} </h2>
+                        <div className="block h-[4.5rem]">
+                            <p className="line-clamp-3">
+                                {" "}
+                                {description === null
+                                    ? "No description..."
+                                    : description}{" "}
+                            </p>
+                        </div>
+                    </div>
 
                     <span onClick={() => setActive(true)}>
                         <Git className="cursor-pointer fill-theme-primary duration-200 hover:fill-theme-accent active:fill-white" />
@@ -58,21 +68,15 @@ export default function RepositoryCard({
                         </AnimationWrapper>
                     </span>
                 </div>
-                <div className="block h-[4.5rem]">
-                    <p className="line-clamp-3">
-                        {" "}
-                        {description === null
-                            ? "No description..."
-                            : description}{" "}
-                    </p>
+                <div className="flex flex-col justify-between h-max">
+                    <button
+                        className="my-4 w-full rounded-md border duration-100
+                    active:bg-theme-active active:text-black"
+                        onClick={openHtmlUrlInNewTab}
+                    >
+                        To GitHub
+                    </button>
                 </div>
-                <button
-                    className="my-4 w-full rounded-md border duration-100
-                active:bg-theme-active active:text-black"
-                    onClick={openHtmlUrlInNewTab}
-                >
-                    To GitHub
-                </button>
             </div>
         </ThemedWrapper>
     );

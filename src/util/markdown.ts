@@ -7,7 +7,7 @@ const markdownRenderer = new HtmlRenderer({
     softbreak: " ",
     safe: false,
 });
-  
+
 export function rawMarkdownToHtml(md: string): string {
     const parsed = markdownParser.parse(md);
     return xss(markdownRenderer.render(parsed));

@@ -26,7 +26,7 @@ export default function GitHubProfileCard({ user }: GitHubProfileCarddata) {
     }
 
     if (data === undefined) {
-        return <LoadingScreen/>;
+        return <LoadingScreen />;
     }
 
     const openGitHubInNewTab = () => {

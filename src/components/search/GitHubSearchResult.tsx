@@ -8,7 +8,10 @@ interface ProfileCardProps {
     children?: React.ReactNode;
 }
 
-export default function GitHubSearchResult({ children, ...props }: ProfileCardProps) {
+export default function GitHubSearchResult({
+    children,
+    ...props
+}: ProfileCardProps) {
     return (
         <ThemedWrapper
             className="relative m-8 pointer-events-auto cursor-pointer duration-100 ease-out before:absolute before:z-[-1] before:-inset-1 before:rounded-md
