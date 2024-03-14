@@ -6,6 +6,7 @@ type AnimationWrapperProps = {
     onShowAnimation?: Keyframe[];
     onHideAnimation?: Keyframe[];
     options?: object;
+    className?: string;
 };
 
 const AnimationWrapper: React.FC<AnimationWrapperProps> = ({
@@ -14,31 +15,39 @@ const AnimationWrapper: React.FC<AnimationWrapperProps> = ({
     onShowAnimation,
     onHideAnimation,
     options = { duration: 100, fill: "forwards" },
+    className = ""
 }) => {
     const childRef = useRef<HTMLSpanElement>(null);
     const [hidden, setHidden] = useState(!show);
     useEffect(() => {
+        let anim: Animation;
+        const controller = new AbortController();
+        const el = () => {
+            setHidden(true);
+        };
         if (childRef.current === null) {
             return;
         }
+
         if (show) {
             if (onShowAnimation) {
                 childRef.current.animate(onShowAnimation, options);
             }
             setHidden(false);
+            controller.abort();
         } else if (!show) {
             if (onHideAnimation) {
-                const anim = childRef.current.animate(onHideAnimation, options);
-                anim.onfinish = () => {
-                    setHidden(true);
-                };
+                anim = childRef.current.animate(onHideAnimation, options);
+                anim.addEventListener("finish", el, { signal: controller.signal });
             } else {
                 setHidden(true);
             }
         }
+        return () => anim?.removeEventListener("finish", el);
     }, [show]);
+    console.log(show, hidden);
     return (
-        <span className="absolute" ref={childRef}>
+        <span className={ "absolute ".concat(className) } ref={childRef}>
             {!hidden && children}
         </span>
     );

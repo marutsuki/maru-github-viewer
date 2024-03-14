@@ -72,8 +72,9 @@ export default function Search<T>({
                                 opacity: "0%",
                             },
                         ]}
+                        className="z-[-1]"
                     >
-                        <SearchPopupWrapper className="pointer-events-none absolute -top-2.5 z-[-1] w-[75vw] -translate-x-1/2 overflow-hidden pt-12">
+                        <SearchPopupWrapper className="pointer-events-none -top-2.5 absolute w-[75vw] -translate-x-1/2 overflow-hidden pt-12">
                             {isError ? (
                                 <h1>An unexpected error occurred!</h1>
                             ) : data === null ? (
