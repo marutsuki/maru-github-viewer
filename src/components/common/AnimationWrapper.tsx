@@ -45,7 +45,6 @@ const AnimationWrapper: React.FC<AnimationWrapperProps> = ({
         }
         return () => anim?.removeEventListener("finish", el);
     }, [show]);
-    console.log(show, hidden);
     return (
         <span className={ "absolute ".concat(className) } ref={childRef}>
             {!hidden && children}
